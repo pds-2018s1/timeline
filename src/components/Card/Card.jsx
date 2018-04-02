@@ -7,8 +7,11 @@ const Card = ({
     showingInfo
   }) => (
     <div className="card" >
-      <div>{name}</div>
-      <div className="year">{year}</div>
+    <div className="container">
+      <div><b>{name}</b></div>
+      { showingInfo &&   <div className="year">{year}</div> }
+      { ! showingInfo &&   <div className="year">¿?</div> }
+      </div>
     </div>
   )
   

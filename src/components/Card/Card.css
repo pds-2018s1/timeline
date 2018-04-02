@@ -1,12 +1,27 @@
 .card {
-    border: 1px solid black;
+    border: 1px solid #bbafaf;
     padding: 4px 8px; 
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Trebuchet MS, sans-serif;
     display: flex;
     flex-direction: column;
     margin: 2px 0px;
-    float: left
+    float: left;   
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
   }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container {
+  padding: 2px 16px;
+}
+
   .card .year {
-    flex-grow: 1
+    border: 1px solid rgb(190, 206, 142);
+    box-shadow: 0 4px 8px 0 rgba(14, 123, 173, 0.2);
+    transition: 0.3s;
+    flex-grow: 1;
+    text-align: center;
+    margin: 10px;
   }

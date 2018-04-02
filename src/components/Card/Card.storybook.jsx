@@ -5,9 +5,17 @@ import Card from "./Card"
 
 storiesOf('Card', module)
 
-  .add('simple usage', () => {
+  .add('mostrar año', () => {
     const fact = { name: "Creación de la bandera",  year: "1812"}
-    return <Card fact={fact} />
+    const show = true
+    return <Card fact={fact} showingInfo={show} />
+  })
+
+
+  .add('no mostrar año', () => {
+    const fact = { name: "Creación de la bandera",  year: "1812"}
+    const show = false
+    return <Card fact={fact} showingInfo={show} />
   })
 
 
