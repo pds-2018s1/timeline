@@ -7,7 +7,7 @@ const Card = ({
     showingInfo
   }) => (
     <div className="card" >
-      <div><b>{name}</b></div>
+      <div className="text"><b>{name}</b></div>
       
       <img className="image" src={require('./inte.jpg')} />
 

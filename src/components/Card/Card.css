@@ -30,5 +30,10 @@
   .card .image {
     padding:4px;
     width:90px;
-    height:55px; 
+    height:55px;
+  }
+
+
+  .card .text{
+    margin: 10px
   }
