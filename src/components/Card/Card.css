@@ -1,0 +1,12 @@
+.card {
+    border: 1px solid black;
+    padding: 4px 8px; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 2px 0px;
+    float: left
+  }
+  .card .year {
+    flex-grow: 1
+  }
