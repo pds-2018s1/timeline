@@ -11,4 +11,21 @@ it("renderiza el hecho", () => {
     const respuesta = shallow(<Card fact={fact} showingInfo={show} />)
     expect(respuesta.find('div.text').text()).toEqual("Independencia de Argentina")
 })
+
+it("renderiza el año si showInfo es true", () => {
+    const fact = {name: "Independencia de Argentina", year: "1816"}
+    const show = true
+    
+    const respuesta = shallow(<Card fact={fact} showingInfo={show} />)
+    expect(respuesta.find('div.year').text()).toEqual("1816")
+})
+
+it("no renderiza el año si showInfo es false", () => {
+    const fact = {name: "Independencia de Argentina", year: "1816"}
+    const show = false
+    
+    const respuesta = shallow(<Card fact={fact} showingInfo={show} />)
+    expect(respuesta.find('div.year').text()).toEqual("¿?")
+})
+
 }
