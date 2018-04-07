@@ -1,0 +1,19 @@
+.playedCards {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: auto;
+    height: 210px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.playedCards .card {
+    margin-left: 5px;
+    margin-right: 5px;
+}
