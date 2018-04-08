@@ -4,4 +4,4 @@ import Table from './Table'
 import Card from '../Card/Card'
 
 
-it("Despliega un timeline inicial y una mano"
+it("Despliega un timeline inicial y una mano")

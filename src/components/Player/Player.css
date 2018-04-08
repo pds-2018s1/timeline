@@ -1,0 +1,31 @@
+.player {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: auto;
+    text-align: center;
+    float: left;
+}
+
+.player .image {
+    padding:4px;
+    width:90px;
+    height:55px;
+  }
+
+.name {
+    color: grey;
+    font-size: 18px;
+}
+
+
+.player.turn{
+    box-shadow: 0 4px 8px 0 rgba(13, 218, 23, 0.2);
+}
+
+
+.player.playerHand{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
