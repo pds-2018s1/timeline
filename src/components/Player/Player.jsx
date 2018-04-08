@@ -21,7 +21,7 @@ const Player = ({
                 </tr>
             </table> 
             </th>
-        <th><div className="playerHand"><PlayerHand cards={playerHand} /></div> </th>
+        <th><div className="playerHand"><PlayerHand cards={playerHand} turn= {turn}/></div> </th>
         </tr>
     </table>
     </div>

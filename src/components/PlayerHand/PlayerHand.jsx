@@ -4,11 +4,12 @@ import "./PlayerHand.css"
 import Card from "../Card/Card"
 
 const PlayerHand = ({ 
-    cards
+    cards,
+    turn
   }) => (
     <div className="lista">
         {
-            cards.map(card => <Card fact= {card.fact} showingInfo = {false}/>)
+            cards.map(card => <Card fact= {card.fact} showingInfo = {false} seleccionable={turn}/>)
         }
     </div>
   )
