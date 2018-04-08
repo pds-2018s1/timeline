@@ -1,12 +1,13 @@
 import React from "react"
-
+import classNames from 'classnames'
 import "./Card.css"
 
 const Card = ({ 
     fact: {name, year}, 
-    showingInfo
+    showingInfo,
+    seleccionable = false
   }) => (
-    <div className="card" >
+    <div className={classNames('card', { seleccionable: seleccionable })}>
       <div className="text"><b>{name}</b></div>
       
       <img className="image" src={require('./inte.jpg')} />

@@ -19,4 +19,12 @@ storiesOf('Card', module)
   })
 
 
+  .add('no mostrar año, seleccionable', () => {
+    const fact = { name: "Creación de la bandera",  year: "1812"}
+    const show = false
+    const seleccionable = true
+    return <Card fact={fact} showingInfo={show} seleccionable = {seleccionable}/>
+  })
+
+
  
