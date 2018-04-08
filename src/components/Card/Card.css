@@ -37,3 +37,19 @@
   .card .text{
     margin: 10px
   }
+
+/*Seleccionable*/
+.card.seleccionable {
+  cursor: pointer;
+}
+.card.seleccionable:hover {
+  color: #229DB2;
+  border: 1px solid #229DB2;
+}
+.card.seleccionable:hover > div {
+  border-color: #229db26e;
+}
+.card.seleccionable:hover .logo-palo {
+  -webkit-filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.8);
+  filter: grayscale(100%) brightness(75%) sepia(100%) hue-rotate(-184deg) saturate(400%) contrast(0.4);
+}
