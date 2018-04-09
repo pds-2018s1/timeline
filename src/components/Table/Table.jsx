@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Timeline from '../Timeline/Timeline'
-import PlayerHand from '../PlayerHand/PlayerHand'
+import Player from '../Player/Player'
 
 const Table = ({timeline, playerHand}) => {
  
     return <div className="gameTable">
             <Timeline playedCards={timeline.playedCards}/>
-            <PlayerHand cards={playerHand} />
+            <Player name={'Persona Y'} playerHand={playerHand} />
         </div>
 }
 export default Table
