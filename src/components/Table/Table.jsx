@@ -3,11 +3,12 @@ import React from 'react'
 import Timeline from '../Timeline/Timeline'
 import Player from '../Player/Player'
 
-const Table = ({timeline, playerHand}) => {
+const Table = ({players, timeline}) => {
  
     return <div className="gameTable">
             <Timeline playedCards={timeline.playedCards}/>
-            <Player name={'Persona Y'} playerHand={playerHand} />
+            {players.map(player => <Player name = {player.name} playerHand = {player.playerHand}/>)}
+            
         </div>
 }
 export default Table

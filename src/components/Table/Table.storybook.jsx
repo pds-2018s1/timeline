@@ -17,8 +17,12 @@ storiesOf('Table', module)
             { fact:{name: "d", year: 1500} },
             { fact:{name: "e", year: 1600} }
         ]
- 
-        return <Table timeline={timeline} playerHand={playerHand} />
+
+        const name1 = "Juan"
+        const player1 = {name:name1, playerHand:playerHand}
+        const players = [player1]
+
+        return <Table timeline={timeline} players={players} />
     })
 
 
