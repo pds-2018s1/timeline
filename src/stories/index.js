@@ -10,6 +10,7 @@ import "../components/PlayerHand/PlayerHand.storybook.jsx"
 import "../components/Timeline/Timeline.storybook.jsx"
 import "../components/Table/Table.storybook.jsx"
 import "../components/Player/Player.storybook.jsx"
+import "../components/Deck/Deck.storybook.jsx"
 
 
   

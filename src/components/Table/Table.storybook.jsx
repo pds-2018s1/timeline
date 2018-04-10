@@ -26,8 +26,12 @@ storiesOf('Table', module)
         const name2 = "Marta"
         const player2 = {name:name2, playerHand:playerHand}
 
+
+        const number = 50
+        const deck = {quantity:number}
+
         const players = [player1, player2]
-        return <Table timeline={timeline} players={players} />
+        return <Table timeline={timeline} players={players} deck={deck}/>
     })
 
 
