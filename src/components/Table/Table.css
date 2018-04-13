@@ -10,5 +10,5 @@
 .rightPanel {
     background-color: grey;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
