@@ -1,0 +1,14 @@
+.gameTable {
+    display: flex;
+    flex-direction: row;
+}
+
+.leftPanel {
+    background-color: antiquewhite;
+}
+
+.rightPanel {
+    background-color: grey;
+    display: flex;
+    flex-direction: row;
+}

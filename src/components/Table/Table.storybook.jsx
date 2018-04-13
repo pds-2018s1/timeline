@@ -18,20 +18,15 @@ storiesOf('Table', module)
             { fact:{name: "e", year: 1600} }
         ]
 
-        const name1 = "Juan"
-        const player1 = {name:name1, playerHand:playerHand}
-        
+        const player1 = {name:"Juan", playerHand:playerHand}
+        const player2 = {name:"Marta", playerHand:playerHand}
+        const player3 = {name:"Laura", playerHand:playerHand}
+        const opponents = [player2,player3]
 
-
-        const name2 = "Marta"
-        const player2 = {name:name2, playerHand:playerHand}
-
-
-        const number = 50
-        const deck = {quantity:number}
+        const deck = {quantity:50}
 
         const players = [player1, player2]
-        return <Table timeline={timeline} players={players} deck={deck}/>
+        return <Table player={player1} opponents={opponents} timeline={timeline} deck={deck}/>
     })
 
 

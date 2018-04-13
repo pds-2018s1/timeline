@@ -14,7 +14,7 @@ storiesOf('Player', module)
         { fact:{name: "d", year: 1500} },
         { fact:{name: "e", year: 1600} }
     ]
-    return <Player name = {name} playerHand = {hand} />
+    return <Player name = {name} playerHand = {hand} showPhoto="true"/>
   })
 
 
@@ -28,7 +28,7 @@ storiesOf('Player', module)
         { fact:{name: "e", year: 1600} }
     ]
     const turn = true
-    return <Player name = {name} playerHand = {hand} turn ={turn} />
+    return <Player name = {name} playerHand = {hand} turn ={turn} showPhoto="true"/>
   })
 
 
