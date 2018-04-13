@@ -5,9 +5,13 @@ import "./Card.css"
 const Card = ({ 
     fact: {name, year}, 
     showingInfo,
-    seleccionable = false
+    seleccionable = false,
+    onSelect,
+    seleccionada
   }) => (
-    <div className={classNames('card', { seleccionable: seleccionable })}>
+    <div 
+      onClick={onSelect}
+      className={classNames('card', { seleccionable}, {seleccionada})}>
       <div className="text"><b>{name}</b></div>
       
       <img className="image" src={require('./inte.jpg')} />

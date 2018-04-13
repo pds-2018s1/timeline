@@ -7,24 +7,28 @@ storiesOf('Card', module)
 
   .add('mostrar año', () => {
     const fact = { name: "Creación de la bandera",  year: "1812"}
-    const show = true
-    return <Card fact={fact} showingInfo={show} />
+    return <Card fact={fact} showingInfo="true"/>
   })
 
+  .add('carta con text muy largo', () => {
+    const fact = {name: "La division de Yugoslavia en Bosnia Herzegovina, Croacia, Macedonia, Montenegro, Serbia y Slovenia"}
+    return <Card fact={fact} showingInfo="true" />
+  })
 
   .add('no mostrar año', () => {
-    const fact = { name: "Creación de la bandera",  year: "1812"}
-    const show = false
-    return <Card fact={fact} showingInfo={show} />
+    const fact = { name: "Fin de la segunda guerra mundial",  year: "1812"}
+    return <Card fact={fact} showingInfo="false" />
   })
 
 
   .add('no mostrar año, seleccionable', () => {
     const fact = { name: "Creación de la bandera",  year: "1812"}
-    const show = false
-    const seleccionable = true
-    return <Card fact={fact} showingInfo={show} seleccionable = {seleccionable}/>
+    return <Card fact={fact} showingInfo="false" seleccionable="true" />
   })
 
+  .add('carta seleccionada', () => {
+    const fact = { name: "Creación de la bandera",  year: "1812"}
+    return <Card fact={fact} showingInfo="false" seleccionada="true" />
+  })
 
  
