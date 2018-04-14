@@ -1,0 +1,8 @@
+.opponent {
+    border: 2px solid black;
+    margin-right: 5px;
+}
+
+.opponentName {
+    text-align: center
+}

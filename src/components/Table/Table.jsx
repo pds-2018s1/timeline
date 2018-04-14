@@ -11,6 +11,10 @@ const Table = ({player, opponents, timeline, deck}) => (
  
     <div className="gameTable">
         <div className="leftPanel">
+            <div className="topmostPanel">
+                <span>Turno de ...</span>
+            </div>
+            <hr></hr>
             <div className="topPanel">
                 <Opponents opponents={opponents} />
             </div>

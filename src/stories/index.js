@@ -12,7 +12,9 @@ import "../components/Table/Table.storybook.jsx"
 import "../components/Player/Player.storybook.jsx"
 import "../components/Deck/Deck.storybook.jsx"
 import "../components/Opponents/Opponents.storybook.jsx"
+
 import "../components/Discard/Discard.storybook.jsx"
 
+import "../components/Opponent/Opponent.storybook.jsx"
 
   

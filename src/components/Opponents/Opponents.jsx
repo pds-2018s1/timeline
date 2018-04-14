@@ -1,11 +1,12 @@
 import React from 'react'
-import Player from '../Player/Player'
+import Opponent from '../Opponent/Opponent'
 import "./Opponents.css"
+
 
 const Opponents = ({opponents}) => (
     <div className="opponents">
         {opponents.map( 
-            o => <Player name={o.name} playerHand={o.playerHand} /> 
+            o => <Opponent name={o.name} playerHand={o.playerHand} /> 
         )}
     </div>
 )
