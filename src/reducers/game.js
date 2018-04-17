@@ -7,12 +7,14 @@ const initialState = {
   }
 
 /**Los turno serán por nro de jugador.. desde 0 hasta...... (en principio arranca el 0) */
-  export const juego = (state = initialState, action) => {
+export const game = (state = initialState, action) => {
     switch (action.type) {
       case START_GAME: return {
         turn : action.turn,
         players : action.players,
         timeline: action.initialCard
       }
+      default: return state
     }
 }
+

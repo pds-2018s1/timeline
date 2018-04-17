@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Game from './containers/Game'
 
+export default class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1 className="App-title">Timeline</h1>
+        </header>
+        <p className="App-intro">
+          <Game />
+        </p>
+      </div>
+    )
+  }
+}
+
+/*
 class App extends Component {
   render() {
     return (
@@ -16,6 +33,6 @@ class App extends Component {
       </div>
     );
   }
-}
+}*/
 
-export default App;
+//export default App;

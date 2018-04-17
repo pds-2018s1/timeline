@@ -6986,6 +6986,10 @@ railroad-diagrams@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/railroad-diagrams/-/railroad-diagrams-1.0.0.tgz#eb7e6267548ddedfb899c1b90e57374559cddb7e"
 
+ramda@^0.25.0:
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.25.0.tgz#8fdf68231cffa90bc2f9460390a0cb74a29b29a9"
+
 randexp@0.4.6:
   version "0.4.6"
   resolved "https://registry.yarnpkg.com/randexp/-/randexp-0.4.6.tgz#e986ad5e5e31dae13ddd6f7b3019aa7c87f60ca3"
@@ -7875,6 +7879,10 @@ shelljs@^0.8.1:
 shellwords@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
+
+shuffle-array@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/shuffle-array/-/shuffle-array-1.0.1.tgz#c4ff3cfe74d16f93730592301b25e6577b12898b"
 
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
