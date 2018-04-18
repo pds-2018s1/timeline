@@ -25,6 +25,7 @@ const opps = [player1, player2, player3, player4, player5, player6]
 
 const mapStateToProps = state => ({
     player: player1,
+    //opponents: state.players,
     opponents: opps,
     //timeline: {playedCards: [state.initialCard]},
     timeline: time,

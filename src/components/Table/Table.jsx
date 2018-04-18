@@ -7,7 +7,7 @@ import Opponents from '../Opponents/Opponents'
 import './Table.css'
 import Discard from '../Discard/Discard';
 
-const Table = ({player, opponents, timeline, deck}) => (
+const  Table = ({player, opponents, timeline, deck}) => (
  
     <div className="gameTable">
          
