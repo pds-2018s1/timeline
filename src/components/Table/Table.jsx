@@ -20,7 +20,7 @@ const  Table = ({player, opponents, timeline, deck}) => (
                 <Opponents opponents={opponents} />
             </div>
             <div className="middlePanel">
-                <Timeline playedCards={timeline.playedCards}/>
+                <Timeline playedCards={timeline}/>
             </div>
             <div className="bottomPanel">
                 <Player name={player.name} playerHand={player.playerHand} showPhoto="true" />

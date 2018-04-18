@@ -3,7 +3,9 @@ import { START_GAME } from '../actions/game'
 
 
 const initialState = {
-    turn : 0
+    turn : 0,
+    players :[],
+    timeline: []
   }
 
 /**Los turno serán por nro de jugador.. desde 0 hasta...... (en principio arranca el 0) */
@@ -12,7 +14,7 @@ export const game = (state = initialState, action) => {
       case START_GAME: return {
         turn : action.turn,
         players : action.players,
-        timeline: action.initialCard
+        timeline: [action.initialCard]
       }
       default: return state
     }
