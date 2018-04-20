@@ -14,8 +14,7 @@ const Card = ({
       className={classNames('card', { seleccionable}, {seleccionada})}>
       <div className="text"><b>{name}</b></div>
       
-      <img className="image" src={require('./inte.jpg')} />
-
+      <img className="image" alt="card" src={require('./inte.jpg')} />
       { showingInfo &&   <div className="year">{year}</div> }
       { ! showingInfo &&   <div className="year">¿?</div> }
     </div>

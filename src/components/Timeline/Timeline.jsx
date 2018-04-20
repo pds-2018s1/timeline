@@ -6,7 +6,7 @@ import "./Timeline.css"
 const Timeline = ({playedCards}) => (
         <div className="playedCards">
             {
-                playedCards.map(card => <div><Card fact= {card.fact} showingInfo = {true}/></div>)
+                playedCards.map(card => <div key={card.fact}><Card fact={card.fact} showingInfo={true}/></div>)
             }
         </div>
     )

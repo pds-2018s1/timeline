@@ -9,7 +9,7 @@ const PlayerHand = ({
   }) => (
     <div className="lista">
         {
-            cards.map(card => <Card fact= {card.fact} showingInfo = {false} seleccionable={turn}/>)
+            cards.map(card => <Card key={card.fact} fact= {card.fact} showingInfo={true} seleccionable={turn}/>)
         }
     </div>
   )

@@ -1,5 +1,4 @@
 import React from "react"
-import classNames from 'classnames'
 import "./Discard.css"
 
 const Discard = ({ 
@@ -8,11 +7,8 @@ const Discard = ({
     <div className="discard">
     <div className="text"> Descarte </div>
     <div className="discard">
-    <img className="image" src={require('./discard.png')} />
+    <img className="image" alt="discard" src={require('./discard.png')} />
       <div className="number"><b>{quantity}</b></div>
-      
-      
-
     </div>
     </div>
   )

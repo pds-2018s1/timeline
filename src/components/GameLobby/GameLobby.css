@@ -1,0 +1,10 @@
+.opponentNames {
+  display: flex;
+  flex-direction: column;
+}
+
+.opponentName {
+  width: 25%;
+  margin-bottom: 5px;
+}
+

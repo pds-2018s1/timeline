@@ -1,5 +1,4 @@
 import React from "react"
-import classNames from 'classnames'
 import "./Deck.css"
 
 const Deck = ({ 
@@ -10,7 +9,7 @@ const Deck = ({
     <div className="deck">
       <div className="number"><b>{quantity}</b></div>
       
-      <img className="image" src={require('./inte.jpg')} />
+      <img className="image" alt="deck" src={require('./inte.jpg')} />
 
     </div>
     </div>
