@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import GameLobby from '../components/GameLobby/GameLobby'
-import { startGame } from '../actions/gameLobby'
+import { startGame } from '../actions/game'
 
 export default connect(
   () => ({}),

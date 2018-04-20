@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Card from '../Card/Card' 
+import Card from '../../containers/Card' 
 import "./Timeline.css"
 
 const Timeline = ({playedCards}) => (

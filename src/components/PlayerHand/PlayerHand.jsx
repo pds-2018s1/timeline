@@ -1,7 +1,7 @@
 import React from "react"
 
 import "./PlayerHand.css"
-import Card from "../Card/Card"
+import Card from "../../containers/Card"
 
 const PlayerHand = ({ 
     cards,
