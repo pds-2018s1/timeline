@@ -7,9 +7,10 @@ import Opponents from '../Opponents/Opponents'
 import './Table.css'
 import Discard from '../Discard/Discard';
 
-const Table = ({player, opponents, timeline, deck}) => (
+const  Table = ({player, opponents, timeline, deck}) => (
  
     <div className="gameTable">
+         
         <div className="leftPanel">
             <div className="topmostPanel">
                 <span>Turno de ...</span>
@@ -19,7 +20,7 @@ const Table = ({player, opponents, timeline, deck}) => (
                 <Opponents opponents={opponents} />
             </div>
             <div className="middlePanel">
-                <Timeline playedCards={timeline.playedCards}/>
+                <Timeline playedCards={timeline}/>
             </div>
             <div className="bottomPanel">
                 <Player name={player.name} playerHand={player.playerHand} showPhoto="true" />
