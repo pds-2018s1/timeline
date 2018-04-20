@@ -3,22 +3,26 @@ import { START_GAME } from '../actions/gameLobby'
 
 
 const initialState = {
-    turn : 0,
-    player : null,
-    timeline: [{fact: "a fact", year: "a year"}],
+    turn: "pepito",
+    player: null,
+    timeline: [
+      {fact: { name: "a factt", year: "a year"}},
+      {fact: { name: "a fact2", year: "a year"}},
+      {fact: { name: "a fact3", year: "a year"}},
+      {fact: { name: "a fact4", year: "a year"}},
+    ],
     gameStarted: false,
     deck: {quantity: 50} 
   }
 
 /**Los turnos serán por nro de jugador.. desde 0 hasta...... (en principio arranca el 0) */
 export const game = (state = initialState, action) => {
-    console.log("dispatching" + action.type)
     switch (action.type) {
       case START_GAME: 
-        console.log("starting............")
         return {
           ...state,
-          player : action.player,
+          player: action.player,
+          turn: action.player.name,
           gameStarted: true
         }
       default: return state

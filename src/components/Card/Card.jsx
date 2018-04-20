@@ -15,7 +15,6 @@ const Card = ({
       <div className="text"><b>{name}</b></div>
       
       <img className="image" alt="card" src={require('./inte.jpg')} />
-
       { showingInfo &&   <div className="year">{year}</div> }
       { ! showingInfo &&   <div className="year">¿?</div> }
     </div>

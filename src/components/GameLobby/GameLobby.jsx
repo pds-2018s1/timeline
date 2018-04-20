@@ -10,17 +10,18 @@ class GameLobby extends React.Component {
     }
   }
 
-  click = () => {
-    console.log("click!")
-    this.props.startGame(this.state.playerName)
-  }
+  handleChange = (event) =>
+    this.setState({playerName: event.target.value})
+  
 
   render() {
     return (
       <div className="gameLobby">
         <div>Game lobby</div>
-        <input type="text" name="playerName" placeholder="ingrese su nombre" />
-        <button type="submit" name="submit" onClick={this.click}>Comenzar juego!</button>
+        <input type="text" name="playerName" placeholder="ingrese su nombre" onChange={this.handleChange}/>
+        <button type="submit" name="submit" 
+          onClick={() => this.props.startGame(this.state.playerName)}>
+          Comenzar juego!</button>
       </div>
     )
   }
