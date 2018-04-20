@@ -3,7 +3,6 @@ import React from 'react'
 import Timeline from '../Timeline/Timeline'
 import Player from '../Player/Player'
 import Deck from '../Deck/Deck'
-import Opponents from '../Opponents/Opponents'
 import './Table.css'
 import Discard from '../Discard/Discard';
 
@@ -16,9 +15,9 @@ const  Table = ({player, opponents, timeline, deck}) => (
                 <span>Turno de ...</span>
             </div>
             <hr></hr>
-            <div className="topPanel">
+            {/* <div className="topPanel">
                 <Opponents opponents={opponents} />
-            </div>
+            </div> */}
             <div className="middlePanel">
                 <Timeline playedCards={timeline}/>
             </div>

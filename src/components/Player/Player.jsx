@@ -5,31 +5,35 @@ import PlayerPhoto from '../PlayerPhoto/PlayerPhoto'
 import "./Player.css"
 
 const Player = ({
-    name,
-    playerHand,
-    turn = false,
-    showPhoto
-  }) => (
+  name,
+  playerHand,
+  turn = false,
+  showPhoto
+}) => (
     <div className={classNames('player', { turn: turn })}>
-    <table>
-        <tr>
+      <table>
+        <tbody>
+          <tr>
             <th>
-            <table>
-                <tr>
+              <table>
+                <tbody>
+                  <tr>
                     <th><div className="name"><b>{name}</b></div></th>
-                </tr>
-                {
-                    showPhoto && 
-                    <tr> 
-                        <th><PlayerPhoto /></th>
+                  </tr>
+                  {
+                    showPhoto &&
+                    <tr>
+                      <th><PlayerPhoto /></th>
                     </tr>
-                }
-            </table> 
+                  }
+                </tbody>
+              </table>
             </th>
-        <th><div className="playerHand"><PlayerHand cards={playerHand} turn= {turn}/></div> </th>
-        </tr>
-    </table>
+            <th><div className="playerHand"><PlayerHand cards={playerHand} turn={turn} /></div> </th>
+          </tr>
+        </tbody>
+      </table>
     </div>
   )
-  
-  export default Player
+
+export default Player
