@@ -1,10 +1,11 @@
 // import { pipe, mergeDeepLeft, adjust, range, mapObjIndexed, prop, equals } from 'ramda'
 import { START_GAME, CARD_SELECTED, CARD_PLACED_IN_TIMELINE } from '../actions/game'
 
-
 const initialState = {
     turn: "pepito",
-    player: null,
+    player: {
+      playerHand: null
+    },
     timeline: [
       {fact: { name: "a fact3", year: "a year"}},
       {fact: { name: "a fact4", year: "a year"}},
@@ -30,9 +31,12 @@ export const game = (state = initialState, action) => {
           selectedCard: action.selectedCard
         }
       case CARD_PLACED_IN_TIMELINE:
-        console.log("selected card is:" , state.selectedCard)
         return {
           ...state,
+          player: {
+            ...state.player,
+            playerHand: state.player.playerHand.filter( card => card.fact.name !== state.selectedCard.fact.name),
+          }, 
           timeline: state.timeline.concat(state.selectedCard),
           selectedCard: null
         }

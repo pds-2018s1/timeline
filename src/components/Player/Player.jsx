@@ -4,12 +4,7 @@ import PlayerHand from '../PlayerHand/PlayerHand'
 import PlayerPhoto from '../PlayerPhoto/PlayerPhoto'
 import "./Player.css"
 
-const Player = ({
-  name,
-  playerHand,
-  turn = false,
-  showPhoto
-}) => (
+const Player = ({name, playerHand, turn = false, showPhoto}) => (
     <div className={classNames('player', { turn: turn })}>
       <table>
         <tbody>

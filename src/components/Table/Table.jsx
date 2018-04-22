@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Timeline from '../Timeline/Timeline'
-import Player from '../Player/Player'
+import Player from '../../containers/Player'
 import Deck from '../Deck/Deck'
 import './Table.css'
 import Discard from '../Discard/Discard';
