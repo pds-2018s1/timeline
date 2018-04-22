@@ -5,7 +5,10 @@ export const CARD_SELECTED = 'CARD_SELECTED'
 
 export const startGame = (playerName) => ({
   type: START_GAME,
-  player : {name:playerName, playerHand:[{fact : {name:"something", year:"a year"}}]},
+  player : {name:playerName, playerHand:[
+    {fact : {name:"something", year:"a year"}},
+    {fact : {name:"something else", year:"another year"}}
+  ]},
 })
 
 export const selectedCard = (card) => ({
