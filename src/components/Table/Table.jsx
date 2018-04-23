@@ -4,7 +4,7 @@ import Timeline from '../Timeline/Timeline'
 import Player from '../../containers/Player'
 import Deck from '../Deck/Deck'
 import './Table.css'
-import Discard from '../Discard/Discard';
+import Discard from '../../containers/Discard'
 
 const Table = ({ player, opponents, timeline, deck, turn }) => (
 
@@ -26,7 +26,7 @@ const Table = ({ player, opponents, timeline, deck, turn }) => (
     </div>
     <div className="rightPanel">
       <Deck quantity={deck.quantity} />
-      <Discard quantity={0} />
+      <Discard/>
     </div>
   </div>
 )
