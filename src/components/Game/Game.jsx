@@ -5,13 +5,12 @@ import './Game.css'
 import Table from '../../containers/Table'
 import GameLobby from '../../containers/GameLobby'
 
-const Game = ({gameStarted}) => {
+const Game = ({gameStarted, winner}) => {
   if(gameStarted){
     return ( 
       <div className="game">
-        <div>
-          <Table />
-        </div>
+        <div>Ganador: {winner}</div>
+        <Table />
       </div>
     )
   }else{

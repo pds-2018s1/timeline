@@ -15,7 +15,8 @@ const initialState = {
     gameStarted: false,
     deck: cards,
     discard: {quantity: 0},
-    selectedCard: null
+    selectedCard: null,
+    winner: null
   }
 
 /**Los turnos serán por nro de jugador.. desde 0 hasta...... (en principio arranca el 0) */
@@ -37,9 +38,11 @@ export const game = (state = initialState, action) => {
 
         //Inserts the new card in the timeline using a card as a reference of the index where the new card should be
         const index = action.cardWithRequiredIndex? state.timeline.indexOf(action.cardWithRequiredIndex) : state.timeline.length
-        console.log("index is:" , index)
         const newTimeline = state.timeline.slice()
         newTimeline.splice(index, 0, state.selectedCard)
+
+        //If this is the last card, the player is the winner
+        const hasWon = state.player.playerHand.length === 1
 
         return {
           ...state,
@@ -48,7 +51,8 @@ export const game = (state = initialState, action) => {
             playerHand: state.player.playerHand.filter( card => card.fact.name !== state.selectedCard.fact.name),
           }, 
           timeline: newTimeline,
-          selectedCard: null
+          selectedCard: null,
+          winner: hasWon? state.player.name : null
         }
       case CARD_REJECTED_FROM_TIMELINE:
 
