@@ -8,7 +8,7 @@ class Card extends React.Component {
     //Las cartas del timeline no se pueden seleccionar, por lo tanto,
     //solo permitimos seleccionar aquellas que no muestran el año.
     if(!this.props.showingInfo) 
-      this.props.cartaSeleccionada({fact: this.props.fact})
+      this.props.cartaSeleccionada({fact: { name: this.props.fact.name, year: this.props.fact.year }})
   }
 
   render() {
