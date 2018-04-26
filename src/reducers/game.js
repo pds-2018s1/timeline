@@ -24,7 +24,9 @@ export const game = (state = initialState, action) => {
           ...state,
           player: action.player,
           turn: action.player.name,
-          gameStarted: true
+          gameStarted: true,
+          deck: action.deck,
+          timeline: action.timeline
         }
       case CARD_SELECTED:
         return {
