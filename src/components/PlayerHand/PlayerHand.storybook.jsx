@@ -1,10 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-
 import PlayerHand from "./PlayerHand"
+import storeCreator from "../../storeCreator"
+import { Provider } from 'react-redux'
 
 storiesOf('PlayerHand', module)
-
+  .addDecorator(story => <Provider store={storeCreator()}>{story()}</Provider>)
   .add('lista de cartas', () => {
       return <PlayerHand cards={[
         { fact:{name: "a", year: 1200} },
