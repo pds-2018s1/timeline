@@ -2,9 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import PlayerHand from "../PlayerHand/PlayerHand"
 import Player from "./Player"
+import storeCreator from "../../storeCreator"
+import { Provider } from 'react-redux'
 
 storiesOf('Player', module)
-
+.addDecorator(story => <Provider store={storeCreator()}>{story()}</Provider>)
   .add('primera mano', () => {
     const name = "persona x"
     const hand = [ 
