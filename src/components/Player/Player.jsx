@@ -4,31 +4,31 @@ import PlayerHand from '../PlayerHand/PlayerHand'
 import PlayerPhoto from '../PlayerPhoto/PlayerPhoto'
 import "./Player.css"
 
-const Player = ({name, playerHand, turn = false, showPhoto}) => (
-    <div className={classNames('player', { turn: turn })}>
-      <table>
-        <tbody>
-          <tr>
-            <th>
-              <table>
-                <tbody>
+const Player = ({ name, playerHand, turn = false, showPhoto }) => (
+  <div className={classNames('player', { turn: turn })}>
+    <table>
+      <tbody>
+        <tr>
+          <th>
+            <table>
+              <tbody>
+                <tr>
+                  <th><div className="name"><b>{name}</b></div></th>
+                </tr>
+                {
+                  showPhoto &&
                   <tr>
-                    <th><div className="name"><b>{name}</b></div></th>
+                    <th><PlayerPhoto /></th>
                   </tr>
-                  {
-                    showPhoto &&
-                    <tr>
-                      <th><PlayerPhoto /></th>
-                    </tr>
-                  }
-                </tbody>
-              </table>
-            </th>
-            <th><div className="playerHand"><PlayerHand cards={playerHand} turn={turn} /></div> </th>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  )
+                }
+              </tbody>
+            </table>
+          </th>
+          <th><div className="playerHand"><PlayerHand cards={playerHand} turn={turn} /></div> </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+)
 
 export default Player
