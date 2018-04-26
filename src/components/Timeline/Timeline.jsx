@@ -15,8 +15,8 @@ const Timeline = ({playedCards}) => (
             {
                 playedCards.map(
                   card => 
-                    <div className="cardAndSlot">
-                      <div key={card.fact}><Card fact={card.fact} showingInfo={true}/></div>
+                    <div key={card.fact.name} className="cardAndSlot">
+                      <div ><Card fact={card.fact} showingInfo={true}/></div>
                       <TimelineSlot prevCard={card} nextCard={resolveNextCard(playedCards, card)}/>
                     </div>
                 )
