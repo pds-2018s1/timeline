@@ -8,10 +8,7 @@ const initialState = {
     player: {
       playerHand: null
     },
-    timeline: [
-      {fact: { name: "a fact3", year: "1500"}},
-      {fact: { name: "a fact4", year: "2500"}},
-    ],
+    timeline: [],
     gameStarted: false,
     deck: cards,
     discard: {quantity: 0},
