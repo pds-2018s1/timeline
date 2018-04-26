@@ -1,5 +1,5 @@
 // import { pipe, mergeDeepLeft, adjust, range, mapObjIndexed, prop, equals } from 'ramda'
-import { START_GAME, CARD_SELECTED, CARD_PLACED_IN_TIMELINE, CARD_REJECTED_FROM_TIMELINE } from '../actions/game'
+import { START_GAME, CARD_SELECTED, CARD_PLACED_IN_TIMELINE } from '../actions/game'
 
 import { cards } from '../model/constants'
 
@@ -34,39 +34,17 @@ export const game = (state = initialState, action) => {
           selectedCard: action.selectedCard
         }
       case CARD_PLACED_IN_TIMELINE:
-
-        //Inserts the new card in the timeline using a card as a reference of the index where the new card should be
-        const index = action.cardWithRequiredIndex? state.timeline.indexOf(action.cardWithRequiredIndex) : state.timeline.length
-        const newTimeline = state.timeline.slice()
-        newTimeline.splice(index, 0, state.selectedCard)
-
-        //If this is the last card, the player is the winner
-        const hasWon = state.player.playerHand.length === 1
-
-        return {
+        return { 
           ...state,
+          timeline: action.timeline,
+          deck: action.deck,
+          discard: action.discard,
           player: {
             ...state.player,
-            playerHand: state.player.playerHand.filter( card => card.fact.name !== state.selectedCard.fact.name),
-          }, 
-          timeline: newTimeline,
-          selectedCard: null,
-          winner: hasWon? state.player.name : null
-        }
-      case CARD_REJECTED_FROM_TIMELINE:
-
-        const plHand = state.player.playerHand.filter( card => card.fact.name !== state.selectedCard.fact.name)
-        plHand.push(state.deck[0]) //Se le da la primera carta del mazo al jugador
-        return {
-          ...state,
-          selectedCard: null,
-          player: {
-            ...state.player,
-            playerHand: plHand
-          }, 
-          discard: {quantity: state.discard.quantity + 1},
-          deck: state.deck.slice(1,state.deck.length)
-        }
+            playerHand: action.playerHand
+          },
+          selectedCard: null
+        } 
       default: return state
     } 
 }
