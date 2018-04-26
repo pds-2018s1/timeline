@@ -13,7 +13,7 @@ export const startGame = (playerName) => ({
   ]},
 })
 
-export const selectedCard = (card) => ({
+export const cardSelected = (card) => ({
   type: CARD_SELECTED,
   selectedCard: card
 })
