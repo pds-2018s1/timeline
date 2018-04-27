@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Game from './containers/Game'
 
 export default class App extends Component {

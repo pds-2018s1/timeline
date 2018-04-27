@@ -8,6 +8,7 @@ const initialState = {
     player: {
       playerHand: null
     },
+    opponents: [],
     timeline: [],
     gameStarted: false,
     deck: cards,
