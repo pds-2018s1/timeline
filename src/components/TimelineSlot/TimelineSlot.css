@@ -1,3 +1,11 @@
 .timelineSlot {
+  min-width: 50px;
+  max-height: 50px;
+  margin-top: 75px;
   border: black dotted 1px;
+  border-radius: 5px;
+}
+
+.timelineSlot:hover {
+  border: blue solid 1px;
 }

@@ -1,7 +1,5 @@
 import React from 'react'
 
-import './Game.css'
-
 import Table from '../../containers/Table'
 import GameLobby from '../../containers/GameLobby'
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import './GameLobby.css'
 
 class GameLobby extends React.Component {
 
