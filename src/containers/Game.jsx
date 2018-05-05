@@ -3,7 +3,8 @@ import Game from '../components/Game/Game'
 
 const mapStateToProps = state => ({
   gameStarted: state.gameStarted,
-  winner: state.winner
+  winner: state.winner,
+  ended: state.ended
 })
 
 export default connect(mapStateToProps, null)(Game)
