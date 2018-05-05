@@ -31,6 +31,7 @@ export const cardPlacedInTimeline = (previousCard) => (dispatch,getState) => {
   let newDeck = deck
   let newDiscard = discard
   let newPlayerHand = player.playerHand.slice()
+  let winner = null
 
   const year = selectedCard.fact.year
   const prevYear = previousCard ? parseInt(previousCard.fact.year) : Number.NEGATIVE_INFINITY
@@ -41,6 +42,9 @@ export const cardPlacedInTimeline = (previousCard) => (dispatch,getState) => {
   newPlayerHand = newPlayerHand.filter( c => c.fact.name !== selectedCard.fact.name)
   if (prevYear < year && nextYear > year) {
     newTimeline = insert(prevCardIndex + 1, selectedCard, newTimeline)
+    if (newPlayerHand.length <1){
+      winner = player
+    }
   }else {
     newPlayerHand.push(deck[0])
     newDeck = newDeck.slice(1,newDeck.length)
@@ -53,5 +57,6 @@ export const cardPlacedInTimeline = (previousCard) => (dispatch,getState) => {
     deck: newDeck,
     discard: newDiscard,
     playerHand: newPlayerHand,
+    winner: winner
   }))
 }

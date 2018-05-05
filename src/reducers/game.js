@@ -44,7 +44,8 @@ export const game = (state = initialState, action) => {
             ...state.player,
             playerHand: action.playerHand
           },
-          selectedCard: null
+          selectedCard: null,
+          winner: action.winner
         } 
       default: return state
     } 
