@@ -2,6 +2,8 @@ import React from 'react'
 
 import Table from '../../containers/Table'
 import GameLobby from '../../containers/GameLobby'
+import Player from '../Player/Player'
+import Winner from '../Winner/Winner'
 
 const Game = ({gameStarted, winner, ended}) => {
   if(gameStarted && !ended){
@@ -11,13 +13,15 @@ const Game = ({gameStarted, winner, ended}) => {
       </div>
     )
    } else if (ended){
-   return ( <div className="game">
-        <div>Ganador: {winner.name}</div>
-       
-      </div>)
-  }else{
+
+    return (
+
+        <Winner name={winner.name}/>
+
+    )
+    } else {
     return <GameLobby/>
-  }
+    }
 }
 
 export default Game
