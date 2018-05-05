@@ -5,14 +5,14 @@ import GameLobby from '../../containers/GameLobby'
 import Player from '../Player/Player'
 import Winner from '../Winner/Winner'
 
-const Game = ({gameStarted, winner, ended}) => {
-  if(gameStarted && !ended){
+const Game = ({gameStarted, winner}) => {
+  if(gameStarted && !winner){
     return ( 
       <div className="game">
         <Table />
       </div>
     )
-   } else if (ended){
+   } else if (winner){
 
     return (
 

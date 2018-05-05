@@ -14,8 +14,7 @@ const initialState = {
     deck: cards,
     discard: {quantity: 0},
     selectedCard: null,
-    winner: null,
-    ended: false
+    winner: null
   }
 
 /**Los turnos serán por nro de jugador.. desde 0 hasta...... (en principio arranca el 0) */
@@ -46,7 +45,6 @@ export const game = (state = initialState, action) => {
             playerHand: action.playerHand
           },
           selectedCard: null,
-          ended: action.ended,
           winner: action.winner
         } 
       default: return state

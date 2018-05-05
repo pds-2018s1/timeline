@@ -31,7 +31,6 @@ export const cardPlacedInTimeline = (previousCard) => (dispatch,getState) => {
   let newDeck = deck
   let newDiscard = discard
   let newPlayerHand = player.playerHand.slice()
-  let ended = false
   let winner = null
 
   const year = selectedCard.fact.year
@@ -44,7 +43,6 @@ export const cardPlacedInTimeline = (previousCard) => (dispatch,getState) => {
   if (prevYear < year && nextYear > year) {
     newTimeline = insert(prevCardIndex + 1, selectedCard, newTimeline)
     if (newPlayerHand.length <1){
-      ended = true
       winner = player
     }
   }else {
@@ -59,7 +57,6 @@ export const cardPlacedInTimeline = (previousCard) => (dispatch,getState) => {
     deck: newDeck,
     discard: newDiscard,
     playerHand: newPlayerHand,
-    winner: winner,
-    ended: ended
+    winner: winner
   }))
 }
