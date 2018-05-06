@@ -1,5 +1,5 @@
 import { insert } from 'ramda'
-
+import { shuffle } from '../model/util'
 export const START_GAME = 'START_GAME'
 export const CARD_SELECTED = 'CARD_SELECTED'
 export const CARD_PLACED_IN_TIMELINE = 'CARD_PLACED_IN_TIMELINE'
@@ -7,14 +7,15 @@ export const CARD_PLACED_IN_TIMELINE = 'CARD_PLACED_IN_TIMELINE'
 export const startGame = (playerName) => (dispatch, getState) => {
   const {deck} = getState()
   //TODO mezclar el mazo
+  const mixedDeck = shuffle(deck)
   dispatch(({
       type: START_GAME,
       player : {
         name:playerName, 
-        playerHand:deck.slice(0,5)
+        playerHand:mixedDeck.slice(0,5)
       },
-      deck: deck.slice(7,deck.length),
-      timeline: deck.slice(5,6)    
+      deck: mixedDeck.slice(7,deck.length),
+      timeline: mixedDeck.slice(5,6)    
     }))
 }
 
