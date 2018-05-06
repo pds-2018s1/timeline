@@ -12,6 +12,7 @@ El juego está desarrollado utilizando React + Redux.
 
 #### Equipo
 -Lucas Lando ([LucasLando](https://github.com/LucasLando))
+
 -Marcia Tejeda ([marcia-t](https://github.com/marcia-t))
 
 
