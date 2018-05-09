@@ -1,6 +1,4 @@
-// import { pipe, mergeDeepLeft, adjust, range, mapObjIndexed, prop, equals } from 'ramda'
-import { START_GAME, CARD_SELECTED, CARD_PLACED_IN_TIMELINE } from '../actions/game'
-
+import { START_GAME, CARD_SELECTED, CARD_PLACED_IN_TIMELINE, LOGIN } from '../actions/game'
 import { cards } from '../model/constants'
 
 const initialState = {
@@ -8,6 +6,7 @@ const initialState = {
     player: {
       playerHand: null
     },
+    loggedIn: false,
     opponents: [],
     timeline: [],
     gameStarted: false,
@@ -20,6 +19,12 @@ const initialState = {
 /**Los turnos serán por nro de jugador.. desde 0 hasta...... (en principio arranca el 0) */
 export const game = (state = initialState, action) => {
     switch (action.type) {
+      case LOGIN: 
+        return {
+          ...state,
+          player: action.player,
+          loggedIn: true
+        }
       case START_GAME: 
         return {
           ...state,
