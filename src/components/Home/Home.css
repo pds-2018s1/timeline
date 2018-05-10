@@ -1,0 +1,20 @@
+.home .greet {
+  width: 80%;
+  margin: auto;
+  padding-left: 11px;
+}
+
+.home .sectionContainer {
+  margin: auto;
+  width: 80%;
+  padding: 30px;
+}
+
+.home .sectionContainer .section {
+  display: inline;
+  width: 30%;
+  border: solid black 1px;
+  float: left;
+  margin: 5px;
+  background-color: lightgrey;
+}

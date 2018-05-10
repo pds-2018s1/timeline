@@ -3,15 +3,23 @@ import { shuffle } from '../model/util'
 export const START_GAME = 'START_GAME'
 export const CARD_SELECTED = 'CARD_SELECTED'
 export const CARD_PLACED_IN_TIMELINE = 'CARD_PLACED_IN_TIMELINE'
+export const LOGIN = 'LOGIN'
 
-export const startGame = (playerName) => (dispatch, getState) => {
-  const {deck} = getState()
+export const login = (playerName) => ({
+  type: LOGIN,
+  player: {
+    name: playerName
+  }
+})
+
+export const startGame = () => (dispatch, getState) => {
+  const {deck, player} = getState()
   //TODO mezclar el mazo
   const mixedDeck = shuffle(deck)
   dispatch(({
       type: START_GAME,
       player : {
-        name:playerName, 
+        ...player, 
         playerHand:mixedDeck.slice(0,5)
       },
       deck: mixedDeck.slice(7,deck.length),
