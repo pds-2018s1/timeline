@@ -5,7 +5,8 @@ const mapStateToProps = state => ({
   gameStarted: state.gameStarted,
   winner: state.winner,
   loggedIn: state.loggedIn,
-  name: state.player.name
+  name: state.player.name,
+  administrate: state.administrate
 })
 
 export default connect(mapStateToProps, null)(Game)

@@ -5,8 +5,9 @@ import GameLobby from '../../containers/GameLobby'
 import Player from '../Player/Player'
 import Winner from '../Winner/Winner'
 import Home from '../Home/Home'
+import CardsList from '../CardsList/CardsList';
 
-const Game = ({ gameStarted, winner, loggedIn, name }) => {
+const Game = ({ gameStarted, winner, loggedIn, name, administrate }) => {
   if (gameStarted && !winner) {
     return (
       <div className="game">
@@ -16,7 +17,10 @@ const Game = ({ gameStarted, winner, loggedIn, name }) => {
   } else if (winner) {
     return (<Winner name={winner.name} />)
   } else if (loggedIn) {
-    return (<Home name={name}/>)
+    if (administrate){
+      return (<CardsList/>)
+    }
+    else return (<Home name={name}/>)
   } else {
     return <GameLobby />
   }

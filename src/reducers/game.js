@@ -1,4 +1,4 @@
-import { START_GAME, CARD_SELECTED, CARD_PLACED_IN_TIMELINE, LOGIN } from '../actions/game'
+import { ADMINISTRATE, START_GAME, CARD_SELECTED, CARD_PLACED_IN_TIMELINE, LOGIN } from '../actions/game'
 import { cards } from '../model/constants'
 
 const initialState = {
@@ -13,7 +13,8 @@ const initialState = {
     deck: cards,
     discard: {quantity: 0},
     selectedCard: null,
-    winner: null
+    winner: null,
+    administrate: false
   }
 
 /**Los turnos serán por nro de jugador.. desde 0 hasta...... (en principio arranca el 0) */
@@ -25,6 +26,11 @@ export const game = (state = initialState, action) => {
           player: action.player,
           loggedIn: true
         }
+      case ADMINISTRATE: 
+        return {
+          ...state,
+          administrate: true
+        }  
       case START_GAME: 
         return {
           ...state,

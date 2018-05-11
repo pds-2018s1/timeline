@@ -4,12 +4,17 @@ export const START_GAME = 'START_GAME'
 export const CARD_SELECTED = 'CARD_SELECTED'
 export const CARD_PLACED_IN_TIMELINE = 'CARD_PLACED_IN_TIMELINE'
 export const LOGIN = 'LOGIN'
+export const ADMINISTRATE = 'ADMINISTRATE'
 
 export const login = (playerName) => ({
   type: LOGIN,
   player: {
     name: playerName
   }
+})
+
+export const administrate = () => ({
+  type: ADMINISTRATE
 })
 
 export const startGame = () => (dispatch, getState) => {
