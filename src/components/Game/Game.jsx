@@ -2,7 +2,6 @@ import React from 'react'
 
 import Table from '../../containers/Table'
 import GameLobby from '../../containers/GameLobby'
-import Player from '../Player/Player'
 import Winner from '../Winner/Winner'
 import Home from '../Home/Home'
 
