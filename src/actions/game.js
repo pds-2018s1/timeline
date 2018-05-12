@@ -1,10 +1,15 @@
 import { insert } from 'ramda'
+import { isoFetch, postWithJSONBody, deleteRequest, putRequestWithJSONBody } from './fetch-utils'
 import { shuffle } from '../model/util'
+import { resolve } from 'path';
 export const START_GAME = 'START_GAME'
 export const CARD_SELECTED = 'CARD_SELECTED'
 export const CARD_PLACED_IN_TIMELINE = 'CARD_PLACED_IN_TIMELINE'
 export const LOGIN = 'LOGIN'
 export const ADMINISTRATE = 'ADMINISTRATE'
+export const FETCH_CARDS = 'FETCH_CARDS'
+export const LOAD_CARDS = 'LOADED_CARDS'
+export const ERROR_LOADING_CARDS = 'ERROR_LOADING_CARDS'
 
 export const login = (playerName) => ({
   type: LOGIN,
@@ -12,6 +17,27 @@ export const login = (playerName) => ({
     name: playerName
   }
 })
+
+
+export const loadCards = cards => ({ type: LOAD_CARDS, cards })
+
+export const errorLoading = error => ({ type: ERROR_LOADING_CARDS, error })
+
+
+export const fetchCards = () => async dispatch => {
+  //dispatch(loadingItems())
+  try {
+    const response = await isoFetch('/cards')
+    if (response.status !== 200) {
+      dispatch(errorLoading(`Server error ${response.status}`))
+    } else {
+      const json = await response.json()
+      dispatch(loadCards(json))
+    }
+  } catch (err) {
+    dispatch(errorLoading(err))
+  }
+}
 
 export const administrate = () => ({
   type: ADMINISTRATE
