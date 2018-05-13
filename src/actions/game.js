@@ -12,9 +12,8 @@ export const login = (playerName) => ({
   }
 })
 
-export const startGame = () => (dispatch, getState) => {
+export const startGame = (matchName, matchSize) => (dispatch, getState) => {
   const {deck, player} = getState()
-  //TODO mezclar el mazo
   const mixedDeck = shuffle(deck)
   dispatch(({
       type: START_GAME,
@@ -22,6 +21,8 @@ export const startGame = () => (dispatch, getState) => {
         ...player, 
         playerHand:mixedDeck.slice(0,5)
       },
+      matchName,
+      matchSize,
       deck: mixedDeck.slice(7,deck.length),
       timeline: mixedDeck.slice(5,6)    
     }))

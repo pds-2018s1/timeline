@@ -1,5 +1,5 @@
 import React from 'react'
-import CreateMatch from '../CreateMatch/CreateMatch'
+import CreateMatch from '../../containers/CreateMatch'
 import Matches from '../Matches/Matches'
 import CardsManagement from '../CardsManagement/CardsManagement'
 import './Home.css'
