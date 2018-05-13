@@ -17,6 +17,8 @@ import "../components/Discard/Discard.storybook.jsx"
 import "../components/Winner/Winner.storybook.jsx"
 import "../components/Opponent/Opponent.storybook.jsx"
 import "../components/Home/Home.storybook.jsx"
+import "../components/Matches/Matches.storybook.jsx"
+
 
 
   

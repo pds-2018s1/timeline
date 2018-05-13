@@ -8,5 +8,5 @@ storiesOf('Home', module)
   .addDecorator(story => <Provider store={storeCreator()}>{story()}</Provider>)
 
     .add('Home page', () => {
-        return <Home name={"Cornelio"}/>
+        return <Home name={"Cornelio"} matches={[{id:1, name:"partida 1 storybook", size:4}]}/>
     })
