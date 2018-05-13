@@ -5,18 +5,23 @@ import Checkbox from 'material-ui/Checkbox'
 import IconButton from 'material-ui/IconButton'
 import DeleteIcon from 'material-ui-icons/Delete'
 
-//import { removeItem } from '../../actions/game'
+import { deleteCard } from '../../actions/game'
 
-function CardsListItem({ item, removeItem}) {
+function CardsListItem({ card, deleteCard}) {
   return (
     <ListItem dense>
-      <ListItemText primary={item.name} secondary={item.year} />
+      <ListItemText primary={card.name+", "+card.year} secondary={card.group} />
+      <ListItemSecondaryAction>
+        <IconButton aria-label="Delete">
+          <DeleteIcon onClick={() => deleteCard(card._id)} />
+        </IconButton>
+      </ListItemSecondaryAction>
     </ListItem>
   )
 }
 
 export default connect(undefined, 
   ({
- //   removeItem
+    deleteCard
   })
 )(CardsListItem)

@@ -16,10 +16,10 @@ class CardsList extends React.Component {
 
     return (
       <div>
-       <h1>Las cartas irían aquí</h1>
+       <h1>Listado de cartas</h1>
         <List>
           {cards.map(card => (
-            <CardsListItem key={card._id} item={card} />
+            <CardsListItem key={card._id} card={card} />
           ))}
         </List>
         

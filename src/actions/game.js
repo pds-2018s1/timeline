@@ -10,6 +10,7 @@ export const ADMINISTRATE = 'ADMINISTRATE'
 export const FETCH_CARDS = 'FETCH_CARDS'
 export const LOAD_CARDS = 'LOADED_CARDS'
 export const ERROR_LOADING_CARDS = 'ERROR_LOADING_CARDS'
+export const DELETE_CARD = 'DELETE_CARD'
 
 export const login = (playerName) => ({
   type: LOGIN,
@@ -23,6 +24,15 @@ export const loadCards = cards => ({ type: LOAD_CARDS, cards })
 
 export const errorLoading = error => ({ type: ERROR_LOADING_CARDS, error })
 
+
+export const localDeleteCard = id => ({
+  type: DELETE_CARD,
+  id
+})
+export const deleteCard = id => async dispatch => {
+  await isoFetch(`/cards/${id}`, deleteRequest())
+  dispatch(localDeleteCard(id))
+}
 
 export const fetchCards = () => async dispatch => {
   //dispatch(loadingItems())
