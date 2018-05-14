@@ -15,7 +15,9 @@ const initialState = {
     selectedCard: null,
     winner: null,
     administrate: false,
-    cards: []
+    cards: [],
+    matchName: null, //TODO agrupar datos del juego en unico objeto
+    matchSize: null
   }
 
 /**Los turnos serán por nro de jugador.. desde 0 hasta...... (en principio arranca el 0) */
@@ -51,7 +53,9 @@ export const game = (state = initialState, action) => {
           turn: action.player.name,
           gameStarted: true,
           deck: action.deck,
-          timeline: action.timeline
+          timeline: action.timeline,
+          matchName: action.matchName,
+          matchSize: action.matchSize
         }
       case CARD_SELECTED:
         return {

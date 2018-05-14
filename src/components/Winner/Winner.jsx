@@ -1,5 +1,4 @@
 import React from "react"
-import classNames from 'classnames'
 import PlayerPhoto from '../PlayerPhoto/PlayerPhoto'
 import "./Winner.css"
 
