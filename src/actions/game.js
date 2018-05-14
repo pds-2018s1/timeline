@@ -31,7 +31,6 @@ export const addCard = (name, year, img, group) => async dispatch => {
   const card = { name: name, year: year, group: group, img:img }
   const response = await isoFetch('/cards', postWithJSONBody(card))
   const r = await response.json()
-  console.log(r)
   dispatch(localAddCard(r.data))
 }
 

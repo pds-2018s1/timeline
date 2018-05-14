@@ -69,9 +69,8 @@ class CardsList extends React.Component {
             className="button"
             onClick={() => {
               this.addCard()
-              console.log(this.state)
-              /*console.log('modal closed ')
-              close()*/
+              
+              close()
             }}
           >
             Agregar Carta
@@ -85,7 +84,6 @@ class CardsList extends React.Component {
   }
   addCard = () => {
     const { addCardAction } = this.props
-    console.log("paso x aqui")
     addCardAction(this.state.name, this.state.year, this.state.img, this.state.group)
     this.setState({ name: '', year: '', img: '', group: '' })
   } 
