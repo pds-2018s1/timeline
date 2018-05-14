@@ -5,7 +5,8 @@ import GameLobby from '../../containers/GameLobby'
 import Player from '../Player/Player'
 import Winner from '../Winner/Winner'
 import Home from '../Home/Home'
-import CardsList from '../CardsList/CardsList';
+//import CardsList from '../CardsList/CardsList';
+import CardsList from '../../containers/CardsList'
 
 const Game = ({ gameStarted, winner, loggedIn, name, administrate }) => {
   if (gameStarted && !winner) {

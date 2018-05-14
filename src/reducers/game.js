@@ -1,4 +1,4 @@
-import { DELETE_CARD, ERROR_LOADING_CARDS, LOAD_CARDS, ADMINISTRATE, START_GAME, CARD_SELECTED, CARD_PLACED_IN_TIMELINE, LOGIN } from '../actions/game'
+import { ADD_CARD, DELETE_CARD, ERROR_LOADING_CARDS, LOAD_CARDS, ADMINISTRATE, START_GAME, CARD_SELECTED, CARD_PLACED_IN_TIMELINE, LOGIN } from '../actions/game'
 import { cards } from '../model/constants'
 
 const initialState = {
@@ -34,7 +34,11 @@ export const game = (state = initialState, action) => {
       case DELETE_CARD: return {
           ...state,
           cards: state.cards.filter(i => i._id !== action.id)
-        }  
+        }
+      case ADD_CARD: return {
+        ...state,
+        cards: state.cards.concat(action.card)
+      }
       case ADMINISTRATE: 
         return {
           ...state,

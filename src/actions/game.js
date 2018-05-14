@@ -11,6 +11,8 @@ export const FETCH_CARDS = 'FETCH_CARDS'
 export const LOAD_CARDS = 'LOADED_CARDS'
 export const ERROR_LOADING_CARDS = 'ERROR_LOADING_CARDS'
 export const DELETE_CARD = 'DELETE_CARD'
+export const ADD_CARD = 'ADD_CARD'
+
 
 export const login = (playerName) => ({
   type: LOGIN,
@@ -18,6 +20,20 @@ export const login = (playerName) => ({
     name: playerName
   }
 })
+
+
+
+export const localAddCard = card => ({
+  type: ADD_CARD,
+  card
+})
+export const addCard = (name, year, img, group) => async dispatch => {
+  const card = { name: name, year: year, group: group, img:img }
+  const response = await isoFetch('/cards', postWithJSONBody(card))
+  const r = await response.json()
+  console.log(r)
+  dispatch(localAddCard(r.data))
+}
 
 
 export const loadCards = cards => ({ type: LOAD_CARDS, cards })
@@ -35,7 +51,6 @@ export const deleteCard = id => async dispatch => {
 }
 
 export const fetchCards = () => async dispatch => {
-  //dispatch(loadingItems())
   try {
     const response = await isoFetch('/cards')
     if (response.status !== 200) {
