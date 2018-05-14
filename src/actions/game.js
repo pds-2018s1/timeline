@@ -1,9 +1,18 @@
 import { insert } from 'ramda'
+import { isoFetch, postWithJSONBody, deleteRequest, putRequestWithJSONBody } from './fetch-utils'
 import { shuffle } from '../model/util'
+import { resolve } from 'path';
 export const START_GAME = 'START_GAME'
 export const CARD_SELECTED = 'CARD_SELECTED'
 export const CARD_PLACED_IN_TIMELINE = 'CARD_PLACED_IN_TIMELINE'
 export const LOGIN = 'LOGIN'
+export const ADMINISTRATE = 'ADMINISTRATE'
+export const FETCH_CARDS = 'FETCH_CARDS'
+export const LOAD_CARDS = 'LOADED_CARDS'
+export const ERROR_LOADING_CARDS = 'ERROR_LOADING_CARDS'
+export const DELETE_CARD = 'DELETE_CARD'
+export const ADD_CARD = 'ADD_CARD'
+
 
 export const login = (playerName) => ({
   type: LOGIN,
@@ -12,7 +21,55 @@ export const login = (playerName) => ({
   }
 })
 
+
+
+export const localAddCard = card => ({
+  type: ADD_CARD,
+  card
+})
+export const addCard = (name, year, img, group) => async dispatch => {
+  const card = { name: name, year: year, group: group, img:img }
+  const response = await isoFetch('/cards', postWithJSONBody(card))
+  const r = await response.json()
+  dispatch(localAddCard(r.data))
+}
+
+
+export const loadCards = cards => ({ type: LOAD_CARDS, cards })
+
+export const errorLoading = error => ({ type: ERROR_LOADING_CARDS, error })
+
+
+export const localDeleteCard = id => ({
+  type: DELETE_CARD,
+  id
+})
+export const deleteCard = id => async dispatch => {
+  await isoFetch(`/cards/${id}`, deleteRequest())
+  dispatch(localDeleteCard(id))
+}
+
+export const fetchCards = () => async dispatch => {
+  try {
+    const response = await isoFetch('/cards')
+    if (response.status !== 200) {
+      dispatch(errorLoading(`Server error ${response.status}`))
+    } else {
+      const json = await response.json()
+      dispatch(loadCards(json))
+    }
+  } catch (err) {
+    dispatch(errorLoading(err))
+  }
+}
+
+export const administrate = () => ({
+  type: ADMINISTRATE
+})
+
+
 export const startGame = (matchName, matchSize) => (dispatch, getState) => {
+
   const {deck, player} = getState()
   const mixedDeck = shuffle(deck)
   dispatch(({

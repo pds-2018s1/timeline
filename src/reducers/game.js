@@ -1,4 +1,4 @@
-import { START_GAME, CARD_SELECTED, CARD_PLACED_IN_TIMELINE, LOGIN } from '../actions/game'
+import { ADD_CARD, DELETE_CARD, ERROR_LOADING_CARDS, LOAD_CARDS, ADMINISTRATE, START_GAME, CARD_SELECTED, CARD_PLACED_IN_TIMELINE, LOGIN } from '../actions/game'
 import { cards } from '../model/constants'
 
 const initialState = {
@@ -14,6 +14,8 @@ const initialState = {
     discard: {quantity: 0},
     selectedCard: null,
     winner: null,
+    administrate: false,
+    cards: [],
     matchName: null, //TODO agrupar datos del juego en unico objeto
     matchSize: null
   }
@@ -27,6 +29,23 @@ export const game = (state = initialState, action) => {
           player: action.player,
           loggedIn: true
         }
+      case LOAD_CARDS: return {
+          ...state,
+          cards: action.cards
+        }
+      case DELETE_CARD: return {
+          ...state,
+          cards: state.cards.filter(i => i._id !== action.id)
+        }
+      case ADD_CARD: return {
+        ...state,
+        cards: state.cards.concat(action.card)
+      }
+      case ADMINISTRATE: 
+        return {
+          ...state,
+          administrate: true
+        }  
       case START_GAME: 
         return {
           ...state,

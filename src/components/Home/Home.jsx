@@ -1,7 +1,7 @@
 import React from 'react'
 import CreateMatch from '../CreateMatch/CreateMatch'
 import Matches from '../Matches/Matches'
-import CardsManagement from '../CardsManagement/CardsManagement'
+import CardsManagement from '../../containers/CardsManagement'
 import './Home.css'
 
 const Home = ({name, matches, startGame}) => (
