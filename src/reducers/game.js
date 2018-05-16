@@ -1,4 +1,4 @@
-import { ADD_CARD, DELETE_CARD, ERROR_LOADING_CARDS, LOAD_CARDS, ADMINISTRATE, START_GAME, CARD_SELECTED, CARD_PLACED_IN_TIMELINE, LOGIN } from '../actions/game'
+import { LOAD_MATCHES, ADD_CARD, DELETE_CARD, ERROR_LOADING_CARDS, LOAD_CARDS, ADMINISTRATE, START_GAME, CARD_SELECTED, CARD_PLACED_IN_TIMELINE, LOGIN } from '../actions/game'
 import { cards } from '../model/constants'
 
 const initialState = {
@@ -17,7 +17,8 @@ const initialState = {
     administrate: false,
     cards: [],
     matchName: null, //TODO agrupar datos del juego en unico objeto
-    matchSize: null
+    matchSize: null,
+    matches: []
   }
 
 /**Los turnos serán por nro de jugador.. desde 0 hasta...... (en principio arranca el 0) */
@@ -74,7 +75,12 @@ export const game = (state = initialState, action) => {
           },
           selectedCard: null,
           winner: action.winner
-        } 
+        }
+      case LOAD_MATCHES:
+        return {
+          ...state,
+          matches: action.matches
+        }
       default: return state
     } 
 }

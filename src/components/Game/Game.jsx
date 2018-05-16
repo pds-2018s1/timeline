@@ -8,7 +8,7 @@ import Home from '../Home/Home'
 import CardsList from '../../containers/CardsList'
 
 
-const Game = ({ gameStarted, winner, loggedIn, name, administrate, matches, startGame }) => {
+const Game = ({ gameStarted, winner, loggedIn, name, administrate, matches, startGame, joinGame, fetchMatches }) => {
 
   if (gameStarted && !winner) {
     return (
@@ -23,7 +23,7 @@ const Game = ({ gameStarted, winner, loggedIn, name, administrate, matches, star
       return (<CardsList/>)
     }
 
-   else return (<Home name={name} matches={matches} startGame={startGame}/>)
+   else return (<Home name={name} matches={matches} startGame={startGame} joinGame={joinGame} fetchMatches={fetchMatches}/>)
 
   } else {
     return <GameLobby />

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Game from '../components/Game/Game'
-import { startGame } from '../actions/game'
+import { startGame, fetchMatches, joinGame } from '../actions/game'
 
 const mapStateToProps = state => ({
   gameStarted: state.gameStarted,
@@ -8,14 +8,18 @@ const mapStateToProps = state => ({
   loggedIn: state.loggedIn,
   name: state.player.name,
   administrate: state.administrate,
-
-  matches: [{id: 1, name: "Partida 1", size: 2},{id: 2, name: "Partida 2", size: 5}, {id: 3, name: "Partida 3", size: 8}]
-
+  matches: state.matches,
 })
 
 const mapActionsToProps = dispatch => ({
   startGame : (matchName, matchSize) => { 
     return dispatch(startGame(matchName, matchSize))
+  },
+  joinGame : (id) => {
+    return dispatch(joinGame(id))
+  },
+  fetchMatches : () => {
+    return dispatch(fetchMatches())
   }
 })
 
