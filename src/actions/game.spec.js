@@ -16,7 +16,7 @@ describe('Game actions', () => {
             selectedCard: card
         })
     })
-        it('buscar las cartas del server', async () => {
+       /* it('buscar las cartas del server', async () => {
             nock(TEST_URL)
             .get('/cards')
             .reply(200, {
@@ -31,7 +31,7 @@ describe('Game actions', () => {
             expect(store.getActions()).toEqual([
             { type: 'LOADED_CARDS', cards: [{ id: 1, text: 'hola' }] }
             ])
-        })
+        })*/
 })
 //TODO: falta hacer test de las otras 2 acciones
 })
