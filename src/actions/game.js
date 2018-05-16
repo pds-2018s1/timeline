@@ -3,12 +3,14 @@ import { isoFetch, postWithJSONBody, deleteRequest, putRequestWithJSONBody } fro
 import { shuffle } from '../model/util'
 import { resolve } from 'path';
 export const START_GAME = 'START_GAME'
+export const JOIN_GAME = 'JOIN_GAME'
 export const CARD_SELECTED = 'CARD_SELECTED'
 export const CARD_PLACED_IN_TIMELINE = 'CARD_PLACED_IN_TIMELINE'
 export const LOGIN = 'LOGIN'
 export const ADMINISTRATE = 'ADMINISTRATE'
 export const FETCH_CARDS = 'FETCH_CARDS'
 export const LOAD_CARDS = 'LOADED_CARDS'
+export const LOAD_MATCHES = 'LOAD_MATCHES'
 export const ERROR_LOADING_CARDS = 'ERROR_LOADING_CARDS'
 export const DELETE_CARD = 'DELETE_CARD'
 export const ADD_CARD = 'ADD_CARD'
@@ -20,8 +22,6 @@ export const login = (playerName) => ({
     name: playerName
   }
 })
-
-
 
 export const localAddCard = card => ({
   type: ADD_CARD,
@@ -63,14 +63,59 @@ export const fetchCards = () => async dispatch => {
   }
 }
 
+export const loadMatches = matches => ({ type: LOAD_MATCHES, matches })
+
+export const fetchMatches = () => async dispatch => {
+  try {
+    const response = await isoFetch('/match')
+    if (response.status !== 200) {
+      dispatch(errorLoading(`Server error ${response.status}`))
+    } else {
+      const json = await response.json()
+      dispatch(loadMatches(json))
+    }
+  } catch (err) {
+    dispatch(errorLoading(err))
+  }
+}
+
 export const administrate = () => ({
   type: ADMINISTRATE
 })
 
 
-export const startGame = (matchName, matchSize) => (dispatch, getState) => {
+export const joinGame = (id) => (dispatch, getState) => {
 
-  const {deck, player} = getState()
+  //TODO por ahora hacemos lo mismo que creando una partida
+  const {deck, player} = getState()  
+  const mixedDeck = shuffle(deck)
+  dispatch(({
+      type: START_GAME,
+      player : {
+        ...player, 
+        playerHand:mixedDeck.slice(0,5)
+      },
+      matchName: "joined game",
+      matchSize: 5,
+      deck: mixedDeck.slice(7,deck.length),
+      timeline: mixedDeck.slice(5,6)    
+    }))
+
+}
+
+export const startGame = (matchName, matchSize) => async (dispatch, getState) => {
+
+  const {deck, player} = getState()  
+
+  const match = {
+    name: matchName,
+    size: matchSize,
+    players: [player]
+  }
+
+  const response = await isoFetch('/match', postWithJSONBody(match))
+  const r = await response.json()
+  
   const mixedDeck = shuffle(deck)
   dispatch(({
       type: START_GAME,

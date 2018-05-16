@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import Matches from './Matches'
 
 {
-  it('Renderiza todos los componentes', () => {
+ /* it('Renderiza todos los componentes', () => {
     const listOfMatches = []
     const matches = shallow(<Matches matches={listOfMatches} />)
     expect(matches.find('.matchLink').length).toBe(0)
@@ -19,7 +19,7 @@ import Matches from './Matches'
     ]
     const matches = shallow(<Matches matches={listOfMatches} />)
     expect(matches.find('.matchLink').length).toBe(3)
-  })
+  })*/
 
   it('Llama a la funcion pasada en las props cuando se clickea el boton')
 
