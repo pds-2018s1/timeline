@@ -1,5 +1,4 @@
 import React from 'react'
-import CardsList from '../CardsList/CardsList'
 
 class CardsManagement extends React.Component {
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import './Matches.css'
 import classNames from 'classnames'
-import { fetchMatches } from '../../actions/game';
 
 class Matches extends React.Component {
 
