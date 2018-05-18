@@ -1,7 +1,6 @@
 import { insert } from 'ramda'
-import { isoFetch, postWithJSONBody, deleteRequest, putRequestWithJSONBody } from './fetch-utils'
+import { isoFetch, postWithJSONBody, deleteRequest } from './fetch-utils'
 import { shuffle } from '../model/util'
-import { resolve } from 'path';
 export const START_GAME = 'START_GAME'
 export const JOIN_GAME = 'JOIN_GAME'
 export const CARD_SELECTED = 'CARD_SELECTED'
@@ -34,11 +33,7 @@ export const addCard = (name, year, img, group) => async dispatch => {
   dispatch(localAddCard(r.data))
 }
 
-
-export const loadCards = cards => ({ type: LOAD_CARDS, cards })
-
 export const errorLoading = error => ({ type: ERROR_LOADING_CARDS, error })
-
 
 export const localDeleteCard = id => ({
   type: DELETE_CARD,
@@ -47,20 +42,6 @@ export const localDeleteCard = id => ({
 export const deleteCard = id => async dispatch => {
   await isoFetch(`/cards/${id}`, deleteRequest())
   dispatch(localDeleteCard(id))
-}
-
-export const fetchCards = () => async dispatch => {
-  try {
-    const response = await isoFetch('/cards')
-    if (response.status !== 200) {
-      dispatch(errorLoading(`Server error ${response.status}`))
-    } else {
-      const json = await response.json()
-      dispatch(loadCards(json))
-    }
-  } catch (err) {
-    dispatch(errorLoading(err))
-  }
 }
 
 export const loadMatches = matches => ({ type: LOAD_MATCHES, matches })
@@ -87,47 +68,57 @@ export const administrate = () => ({
 export const joinGame = (id) => (dispatch, getState) => {
 
   //TODO por ahora hacemos lo mismo que creando una partida
-  const {deck, player} = getState()  
-  const mixedDeck = shuffle(deck)
+  const {cards, player} = getState()  
+  const mixedCards = shuffle(cards)
   dispatch(({
       type: START_GAME,
       player : {
         ...player, 
-        playerHand:mixedDeck.slice(0,5)
+        playerHand:mixedCards.slice(0,5)
       },
       matchName: "joined game",
       matchSize: 5,
-      deck: mixedDeck.slice(7,deck.length),
-      timeline: mixedDeck.slice(5,6)    
+      cards: mixedCards.slice(7,cards.length),
+      timeline: mixedCards.slice(5,6)    
     }))
 
 }
 
 export const startGame = (matchName, matchSize) => async (dispatch, getState) => {
+  try {
+    const response = await isoFetch('/cards')
+    const cards = await response.json()
+    if (response.status !== 200) {
+      dispatch(errorLoading(`Server error ${response.status}`))
+    } else {
+      const {player} = getState()  
 
-  const {deck, player} = getState()  
+      const match = {
+        name: matchName,
+        size: matchSize,
+        players: [player]
+      }
 
-  const match = {
-    name: matchName,
-    size: matchSize,
-    players: [player]
+      const response = await isoFetch('/match', postWithJSONBody(match))
+      await response.json()
+      
+      const mixedCards = shuffle(cards)
+      dispatch(({
+          type: START_GAME,
+          player : {
+            ...player, 
+            playerHand:mixedCards.slice(0,5)
+          },
+          matchName,
+          matchSize,
+          cards: mixedCards.slice(7,cards.length),
+          timeline: mixedCards.slice(5,6)    
+      }))
+
+    }
+  } catch (err) {
+    dispatch(errorLoading(err))
   }
-
-  const response = await isoFetch('/match', postWithJSONBody(match))
-  const r = await response.json()
-  
-  const mixedDeck = shuffle(deck)
-  dispatch(({
-      type: START_GAME,
-      player : {
-        ...player, 
-        playerHand:mixedDeck.slice(0,5)
-      },
-      matchName,
-      matchSize,
-      deck: mixedDeck.slice(7,deck.length),
-      timeline: mixedDeck.slice(5,6)    
-    }))
 }
 
 export const cardSelected = (card) => ({
@@ -136,37 +127,38 @@ export const cardSelected = (card) => ({
 })
 
 export const cardPlacedInTimeline = (previousCard) => (dispatch,getState) => {
-  const { selectedCard, timeline, deck, discard, player } = getState()
+  const { selectedCard, timeline, cards, discard, player } = getState()
   if(!selectedCard) return;
 
+  const card = selectedCard.card
   let newTimeline = timeline.slice() 
-  let newDeck = deck
+  let newCards = cards
   let newDiscard = discard
   let newPlayerHand = player.playerHand.slice()
   let winner = null
 
-  const year = selectedCard.fact.year
-  const prevYear = previousCard ? parseInt(previousCard.fact.year) : Number.NEGATIVE_INFINITY
+  const year = card.year
+  const prevYear = previousCard ? parseInt(previousCard.year) : Number.NEGATIVE_INFINITY
   const prevCardIndex = previousCard ? timeline.indexOf(previousCard) : -1
   const nextCard = prevCardIndex < timeline.length - 1 ? timeline[prevCardIndex + 1] : null
-  const nextYear = nextCard ? parseInt(timeline[prevCardIndex + 1].fact.year) : Number.POSITIVE_INFINITY
+  const nextYear = nextCard ? parseInt(timeline[prevCardIndex + 1].year) : Number.POSITIVE_INFINITY
 
-  newPlayerHand = newPlayerHand.filter( c => c.fact.name !== selectedCard.fact.name)
+  newPlayerHand = newPlayerHand.filter( c => c.name !== card.name)
   if (prevYear < year && nextYear > year) {
-    newTimeline = insert(prevCardIndex + 1, selectedCard, newTimeline)
+    newTimeline = insert(prevCardIndex + 1, card, newTimeline)
     if (newPlayerHand.length <1){
       winner = player
     }
   }else {
-    newPlayerHand.push(deck[0])
-    newDeck = newDeck.slice(1,newDeck.length)
+    newPlayerHand.push(cards[0])
+    newCards = newCards.slice(1,newCards.length)
     newDiscard = {quantity: newDiscard.quantity + 1}
   }
 
   dispatch(({
     type: CARD_PLACED_IN_TIMELINE,
     timeline: newTimeline,  
-    deck: newDeck,
+    cards: newCards,
     discard: newDiscard,
     playerHand: newPlayerHand,
     winner: winner

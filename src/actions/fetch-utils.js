@@ -2,10 +2,7 @@ import _isoFetch from 'isomorphic-fetch'
 
 export const TEST_URL = "http://localhost:3001"
 
-const isBrowser = () => typeof window !== 'undefined'
-const getBrowserUrl = url => `${window.location.protocol}//${window.location.host}${url}`
 const pathToURL = url => /*isBrowser() ? getBrowserUrl(url) :*/ `${TEST_URL}${url}`;
-
 export const isoFetch = (path, options) => _isoFetch(pathToURL(path), options)
 
 const jsonBody = body => ({

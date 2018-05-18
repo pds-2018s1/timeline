@@ -1,7 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import List from 'material-ui/List'
-import { fetchCards, addCard } from '../../actions/game'
 import CardsListItem from '../CardsListItem/CardsListItem'
 import Popup from "reactjs-popup";
 import './CardsList.css'
@@ -17,10 +15,7 @@ class CardsList extends React.Component {
       img: ""
     }
   }
-  componentDidMount() {
-    const { fetchCards } = this.props
-    fetchCards()
-  }
+
 
   handleNameChange = (event) =>
     this.setState({name: event.target.value})
@@ -88,19 +83,5 @@ class CardsList extends React.Component {
     this.setState({ name: '', year: '', img: '', group: '' })
   } 
 }
-
- /*
-export default connect(state => ({
-  cards: state.cards
-}),
-{
-  fetchCards
-})(CardsList)*/
-/*import React from 'react'
-
-
-const CardsList = ({}) => (
-    <div> Cartas </div>
-)*/
 
 export default CardsList

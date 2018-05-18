@@ -9,8 +9,8 @@ const Timeline = ({ playedCards }) => (
     {
       playedCards.map(
         card =>
-          <div key={card.fact.name} className="cardAndSlot">
-            <div ><Card fact={card.fact} showingInfo={true} /></div>
+          <div key={card._id} className="cardAndSlot">
+            <div ><Card card={card} showingInfo={true} /></div>
             <TimelineSlot prevCard={card} />
           </div>
       )
