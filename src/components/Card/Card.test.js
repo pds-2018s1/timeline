@@ -17,7 +17,7 @@ it("renderiza el año si showInfo es true", () => {
     const show = true
     
     const respuesta = shallow(<Card card={card} showingInfo={show} />)
-    expect(respuesta.find('div.year').text()).toEqual("1816")
+    expect(respuesta.find('div.year').text()).toBe("1816")
 })
 
 it("no renderiza el año si showInfo es false", () => {
@@ -25,7 +25,7 @@ it("no renderiza el año si showInfo es false", () => {
     const show = false
     
     const respuesta = shallow(<Card card={card} showingInfo={show} />)
-    expect(respuesta.find('div.year').text()).toEqual("¿?")
+    expect(respuesta.find('div.year').length).toBe(0)
 })
 
 }
