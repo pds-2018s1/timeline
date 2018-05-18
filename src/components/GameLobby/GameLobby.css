@@ -1,0 +1,36 @@
+.gameLobby {
+  width: 250px;
+  margin: auto;
+  background-color: grey;
+  margin-top: 200px;
+  opacity: 0.97;
+}
+
+.gameLobby .title {
+  background-color: grey;
+  text-align: center;
+}
+
+.gameLobby .title h3 {
+  padding-top: 10px;
+}
+
+.gameLobby .login {
+  height: 100px;
+  background-color: lightgrey;
+}
+
+.gameLobby .login input{
+  margin-left: 37px;
+  margin-top: 25px;
+}
+
+
+.gameLobby .login button{
+  margin-top: 10px;
+  margin-left: 98px;
+}
+
+
+
+
