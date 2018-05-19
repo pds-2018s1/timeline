@@ -13,12 +13,18 @@ class Card extends React.Component {
 
     return ( 
       <div className={classNames('card', {'seleccionada' : seleccionada})} onClick={() => cardSelected( {card : this.props.card} )} >
-        <div className="text"><b>{name}</b></div>
-        <img className="image" alt="card" src={require('./inte.jpg')} />
-        {showingInfo? <div className="year">{year}</div> : <div className="year">¿?</div>}
+        <div className="content">
+          <div className="image">
+            <img alt="card" src={this.props.card.image} width="100" height="170"/> 
+          </div>
+          {showingInfo && <div className="year">{year}</div>}
+          <div className="text">{name}</div>
+        </div>
       </div>
     )
   }
 }
+
+//src={require('./inte.jpg')}
 
 export default Card

@@ -4,12 +4,14 @@ import Table from '../../containers/Table'
 import GameLobby from '../../containers/GameLobby'
 import Winner from '../Winner/Winner'
 import Home from '../Home/Home'
-//import CardsList from '../CardsList/CardsList';
 import CardsList from '../../containers/CardsList'
+import './Game.css'
 
+const Game = (props) => {
+  return <div className="main">{resolveComponent(props)}</div>
+}
 
-const Game = ({ gameStarted, winner, loggedIn, name, administrate, matches, startGame, joinGame, fetchMatches }) => {
-
+const resolveComponent = ({gameStarted, winner, loggedIn, name, administrate, matches, startGame, joinGame, fetchMatches}) => {
   if (gameStarted && !winner) {
     return (
       <div className="game">
