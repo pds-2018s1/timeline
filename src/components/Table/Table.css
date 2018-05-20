@@ -42,3 +42,18 @@
 .discard {
   margin-top: 140px;
 }
+
+.opponentCards {
+  margin: 5px;
+}
+
+.opponentName {
+  font-weight: bold;
+  font-size: 18px;
+  background-color: darkgrey;
+}
+
+.opponentCards div {
+  /* border-bottom: solid 2px grey;
+  border-top: solid 2px grey; */
+}

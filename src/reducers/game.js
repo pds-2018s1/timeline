@@ -48,6 +48,7 @@ export const game = (state = initialState, action) => {
           turn: action.player.name,
           gameStarted: true,
           cards: action.cards,
+          opponents: action.opponents,
           timeline: action.timeline,
           matchName: action.matchName,
           matchSize: action.matchSize
