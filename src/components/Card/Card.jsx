@@ -15,7 +15,7 @@ class Card extends React.Component {
       <div className={classNames('card', {'seleccionada' : seleccionada})} onClick={() => cardSelected( {card : this.props.card} )} >
         <div className="content">
           <div className="image">
-            <img alt="card" src={this.props.card.image} width="100" height="170"/> 
+            <img alt="card image" src={this.props.card.image} width="100" height="170"/> 
           </div>
           {showingInfo && <div className="year">{year}</div>}
           <div className="text">{name}</div>

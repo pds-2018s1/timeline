@@ -111,6 +111,7 @@ export const startGame = (matchName, matchSize) => async (dispatch, getState) =>
           },
           matchName,
           matchSize,
+          opponents: generateOpponents(),
           cards: mixedCards.slice(7,cards.length),
           timeline: mixedCards.slice(5,6)    
       }))
@@ -164,3 +165,19 @@ export const cardPlacedInTimeline = (previousCard) => (dispatch,getState) => {
     winner: winner
   }))
 }
+
+export const generateOpponents = () => (
+  [
+    {name:"Juan", playerHand: [{_id: 123, name: "Invencion de la agricultura", year: 1, image: ""}]},
+    {name:"Sofia", playerHand: [{_id: 124, name: "Llegada a la luna", year: 1969, image: ""}]},
+    {name:"Carlos", playerHand: [
+      {_id: 125, name: "Invencion de la agricultura", year: 1, image: ""},
+      {_id: 126, name: "Invencion de la agricultura", year: 1, image: ""},
+      {_id: 127, name: "Invencion de la agricultura", year: 1, image: ""},
+    ]},
+    {name:"Florencia", playerHand: [
+      {_id: 128, name: "Llegada a la luna", year: 1969, image: ""},
+      {_id: 129, name: "Llegada a la luna", year: 1969, image: ""}
+    ]}
+  ]
+)
