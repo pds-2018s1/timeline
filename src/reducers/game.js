@@ -32,6 +32,10 @@ export const game = (state = initialState, action) => {
           ...state,
           cards: state.cards.filter(i => i._id !== action.id)
         }
+      case LOAD_CARDS: return {
+          ...state,
+          cards: action.cards
+      }
       case ADD_CARD: return {
         ...state,
         cards: state.cards.concat(action.card)

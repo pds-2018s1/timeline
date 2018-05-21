@@ -15,7 +15,10 @@ class CardsList extends React.Component {
       img: ""
     }
   }
-
+  componentDidMount() {
+    const { fetchCards } = this.props
+    fetchCards()
+  }
 
   handleNameChange = (event) =>
     this.setState({name: event.target.value})
