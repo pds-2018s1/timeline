@@ -3,7 +3,7 @@ import CardsList from '../components/CardsList/CardsList'
 import { addCard, fetchCards } from '../actions/game'
 
   export default connect(state => ({
-    cards: state.cardsList
+    cards: state.cards
   }),
   {
     fetchCards,

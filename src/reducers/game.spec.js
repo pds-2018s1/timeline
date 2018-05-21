@@ -22,8 +22,7 @@ describe('game reducer', () => {
         matchName: null, //TODO agrupar datos del juego en unico objeto
         matchSize: null,
         matches: [],
-        cardsList: [{name: 'independencia de  ... ', year: '1987'  }],
-        cards: []
+        cards: [{name: 'independencia de  ... ', year: '1987'  }]
     })
   })
 
@@ -45,8 +44,7 @@ describe('game reducer', () => {
         matchName: null, //TODO agrupar datos del juego en unico objeto
         matchSize: null,
         matches: [],
-        cards: [],
-        cardsList: []
+        cards: []
       })
   })
 
