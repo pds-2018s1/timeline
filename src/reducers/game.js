@@ -16,7 +16,8 @@ const initialState = {
     administrate: false,
     matchName: null, //TODO agrupar datos del juego en unico objeto
     matchSize: null,
-    matches: []
+    matches: [],
+    cardsList: []
   }
 
 /**Los turnos serán por nro de jugador.. desde 0 hasta...... (en principio arranca el 0) */
@@ -32,9 +33,13 @@ export const game = (state = initialState, action) => {
           ...state,
           cards: state.cards.filter(i => i._id !== action.id)
         }
+      case LOAD_CARDS: return {
+          ...state,
+          cardsList: action.cards
+      }
       case ADD_CARD: return {
         ...state,
-        cards: state.cards.concat(action.card)
+        cardsList: state.cardsList.concat(action.card)
       }
       case ADMINISTRATE: 
         return {

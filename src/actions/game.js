@@ -22,6 +22,22 @@ export const login = (playerName) => ({
   }
 })
 
+export const fetchCards = () => async dispatch => {
+  try {
+    const response = await isoFetch('/cards')
+    if (response.status !== 200) {
+      dispatch(errorLoading(`Server error ${response.status}`))
+    } else {
+      const json = await response.json()
+      dispatch(loadCards(json))
+    }
+  } catch (err) {
+    dispatch(errorLoading(err))
+  }
+}
+
+export const loadCards = cards => ({ type: LOAD_CARDS, cards })
+
 export const localAddCard = card => ({
   type: ADD_CARD,
   card

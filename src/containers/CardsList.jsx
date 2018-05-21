@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
 import CardsList from '../components/CardsList/CardsList'
-import { addCard } from '../actions/game'
+import { addCard, fetchCards } from '../actions/game'
 
   export default connect(state => ({
-    cards: state.cards
+    cards: state.cardsList
   }),
   {
+    fetchCards,
     addCardAction: addCard
   })(CardsList)
