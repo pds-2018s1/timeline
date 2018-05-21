@@ -1,5 +1,5 @@
 import {game} from './game'
-import {localAddCard as addCard, login, startGame} from '../actions/game'
+import {localAddCard as addCard, login, startGame, cardSelected, localDeleteCard as deleteCard} from '../actions/game'
 
 describe('game reducer', () => {
 
@@ -9,7 +9,7 @@ describe('game reducer', () => {
     expect(game(undefined, action)).toEqual({
         turn: "",
         player: {
-        playerHand: null
+         playerHand: null
         },
         loggedIn: false,
         opponents: [],
@@ -46,6 +46,69 @@ describe('game reducer', () => {
         matches: [],
         cards: []
       })
+  })
+
+  it('selects a card', () => {
+    const action = cardSelected({name: "Conquista de Pueyrredón", year: "1966"})
+    expect(game(undefined, action)).toEqual({
+        turn: "",
+        player: {
+          playerHand: null
+        },
+        loggedIn: false,
+        opponents: [],
+        timeline: [],
+        gameStarted: false,
+        discard: {quantity: 0},
+        selectedCard: {name: "Conquista de Pueyrredón", year: "1966"},
+        winner: null,
+        administrate: false,
+        matchName: null, 
+        matchSize: null,
+        matches: [],
+        cards: []
+    })
+  })
+
+  it('deletes a card', () => {
+    const _cards= [{_id: 1, name:"h", year:"90"}, {_id:2, name:"j", year:"100"}]
+    const state= {
+      turn: "",
+      player: {
+      playerHand: null
+      },
+      loggedIn: false,
+      opponents: [],
+      timeline: [],
+      gameStarted: false,
+      discard: {quantity: 0},
+      selectedCard: null,
+      winner: null,
+      administrate: false,
+      matchName: null, //TODO agrupar datos del juego en unico objeto
+      matchSize: null,
+      matches: [],
+      cards: _cards
+    }
+    const action = deleteCard
+    expect(game(state, deleteCard(1))).toEqual({
+      turn: "",
+      player: {
+      playerHand: null
+      },
+      loggedIn: false,
+      opponents: [],
+      timeline: [],
+      gameStarted: false,
+      discard: {quantity: 0},
+      selectedCard: null,
+      winner: null,
+      administrate: false,
+      matchName: null, //TODO agrupar datos del juego en unico objeto
+      matchSize: null,
+      matches: [],
+      cards: [{_id:2, name:"j", year:"100"}]
+    })
   })
 
   /*it ('starts a game', async () => {

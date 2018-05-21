@@ -1,5 +1,5 @@
-import { cards } from '../model/constants'
-import { startGame, cardSelected, cardPlacedInTimeline, fetchCards } from '../actions/game'
+
+import { startGame, cardSelected, cardPlacedInTimeline, fetchCards, loadCards } from '../actions/game'
 import { TEST_URL } from './fetch-utils'
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -14,6 +14,14 @@ describe('Game actions', () => {
         expect(cardSelected(card)).toEqual({
             type: 'CARD_SELECTED',
             selectedCard: card
+        })
+    })
+
+    it('LOAD_CARDS, cargar cartas', () => {
+        const _cards = [{name:"h", year:"90"}, {name:"j", year:"100"}]
+        expect(loadCards(_cards)).toEqual({
+            type: 'LOADED_CARDS',
+            cards : _cards
         })
     })
        /* it('buscar las cartas del server', async () => {
