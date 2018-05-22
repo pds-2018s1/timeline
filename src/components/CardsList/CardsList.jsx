@@ -4,8 +4,6 @@ import CardsListItem from '../CardsListItem/CardsListItem'
 import Popup from "reactjs-popup";
 import './CardsList.css'
 import { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List'
-import IconButton from 'material-ui/IconButton'
-import DeleteIcon from 'material-ui-icons/Delete'
 
 
 
@@ -53,6 +51,17 @@ class CardsList extends React.Component {
   handleGroupChange = (event) =>
     this.setState({group: event.target.value})
 
+   _handleDelete(id){
+      this.setState(prevState => ({
+          data: prevState.data.filter(el => el != id )
+      }));
+  }
+  delete(id){          
+    const {deleteCardAction} = this.props
+    deleteCardAction(id)
+    const { cards } = this.props
+    this.setState({_cards:cards, filtered:false})
+  }
 
   render() {
     let  {cards} = this.props
@@ -66,7 +75,7 @@ class CardsList extends React.Component {
        <input type="text" placeholder="Search" onChange={this.filterList}/>
         <List>
           {cards.map(card => (
-              <CardsListItem key={card._id} card={card} />
+              <CardsListItem key={card._id} card={card} _handleDelete={this.delete.bind(this)}/>
           ))}
         </List>
         <Popup trigger={<button className="button"> Agregar una carta </button>} modal>
@@ -107,14 +116,6 @@ class CardsList extends React.Component {
     const { cards } = this.props
     this.setState({_cards:cards, filtered: false})
   } 
-
-  /*
-  deleteCard = (id) => {
-    const {deleteCardAction} = this.props
-    deleteCardAction(id)
-    const { cards } = this.props
-    this.setState({_cards:cards})
-  }*/
 
 
   filterList = (event) => {
