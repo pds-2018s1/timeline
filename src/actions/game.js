@@ -92,6 +92,7 @@ export const joinGame = (id) => (dispatch, getState) => {
         ...player, 
         playerHand:mixedCards.slice(0,5)
       },
+      opponents: generateOpponents(),
       matchName: "joined game",
       matchSize: 5,
       cards: mixedCards.slice(7,cards.length),

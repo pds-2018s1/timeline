@@ -111,8 +111,8 @@ describe('game reducer', () => {
     })
   })
 
-  /*it ('starts a game', async () => {
-      const state = {
+  it.skip ('starts a game', async () => {
+      let state = {
         turn: "",
         player: {
          name: "Juan"
@@ -130,8 +130,9 @@ describe('game reducer', () => {
         matches: [],
         cards: []
       }
-      const action = startGame("partida 1", 3)
-      expect(game(state, action)).toEqual({
+      
+      await startGame("partida 1", 3)(action => state = game(state, action), () => state)
+      expect(state).toEqual({
         
             turn: "",
             player: {
@@ -152,6 +153,6 @@ describe('game reducer', () => {
             cards: expect.any(Array)
            
       })
-  })*/
+  })
 })
 

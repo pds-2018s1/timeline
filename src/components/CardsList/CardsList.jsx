@@ -17,6 +17,7 @@ class CardsList extends React.Component {
       group: "",
       img: "",
       filtered: false,
+      filter: "",
       _cards: this.getInitialState
     }
   }
@@ -25,14 +26,13 @@ class CardsList extends React.Component {
     const { fetchCards } = this.props
     fetchCards()
     const {cards} = this.props
-    this.setState({_cards:cards, filtered: false})
+    this.setState({filter:"",_cards:cards, filtered: false})
   }
   
   getInitialState (){
     const { fetchCards } = this.props
     fetchCards()
     const {cards} = this.props
-    console.log(cards)
     return cards
   }
  
@@ -56,12 +56,7 @@ class CardsList extends React.Component {
           data: prevState.data.filter(el => el != id )
       }));
   }
-  delete(id){          
-    const {deleteCardAction} = this.props
-    deleteCardAction(id)
-    const { cards } = this.props
-    this.setState({_cards:cards, filtered:false})
-  }
+  
 
   render() {
     let  {cards} = this.props
@@ -72,7 +67,7 @@ class CardsList extends React.Component {
     return (
       <div>
        <h1>Listado de cartas</h1>
-       <input type="text" placeholder="Search" onChange={this.filterList}/>
+       <input type="text" text={this.state.filter} placeholder="Search" onChange={this.filterList}/>
         <List>
           {cards.map(card => (
               <CardsListItem key={card._id} card={card} _handleDelete={this.delete.bind(this)}/>
@@ -114,7 +109,7 @@ class CardsList extends React.Component {
     addCardAction(this.state.name, this.state.year, this.state.img, this.state.group)
     this.setState({ name: '', year: '', img: '', group: '' })
     const { cards } = this.props
-    this.setState({_cards:cards, filtered: false})
+    this.setState({filter:"",_cards:cards, filtered: false})
   } 
 
 
@@ -126,8 +121,15 @@ class CardsList extends React.Component {
       return n.group.match(_group)
       
     })
-    this.setState({filtered: true,_cards: filteredCards})
+    this.setState({ filtered: true,_cards: filteredCards})
   }  
+
+  delete(id){          
+    const {deleteCardAction} = this.props
+    deleteCardAction(id)
+    const { cards } = this.props
+    this.setState({filter:"" ,_cards:cards, filtered:false})
+  }
 }
 
 export default CardsList
