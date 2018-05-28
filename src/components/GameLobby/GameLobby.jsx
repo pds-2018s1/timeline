@@ -21,9 +21,9 @@ class GameLobby extends React.Component {
           <h3>Timeline</h3>
         </div>
         <div className="login">
-          <input type="text" name="playerName" placeholder="ingrese su nombre" onChange={this.handleChange}/>
+          <input type="text" id="loginName" name="playerName" placeholder="ingrese su nombre" onChange={this.handleChange}/>
           
-          <button type="submit" name="submit" 
+          <button type="submit" name="submit" id="loginSubmit"
             onClick={() => this.props.login(this.state.playerName)}>
             Entrar</button>
         </div>

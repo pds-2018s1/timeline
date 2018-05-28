@@ -9,7 +9,7 @@ import Discard from '../../containers/Discard'
 
 const Table = ({ player, opponents, timeline, deck, turn }) => (
 
-  <div className="gameTable">
+  <div className="gameTable" id="gameTable">
     <div className="leftPanel">
       <div className="leftPanelGrid">
         {/* <div className="topmostPanel">
@@ -19,10 +19,10 @@ const Table = ({ player, opponents, timeline, deck, turn }) => (
         <div className="topPanel">
           <Opponents opponents={opponents} />
         </div>
-          <div className="middlePanel">
+          <div className="middlePanel" id="gameTimeline">
             <Timeline playedCards={timeline} />
           </div>
-          <div className="bottomPanel">
+          <div className="bottomPanel" id="playerHand">
             <Player name={player.name} playerHand={player.playerHand} showPhoto="true" />
           </div>
       </div>
