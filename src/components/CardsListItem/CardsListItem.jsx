@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List'
 import IconButton from 'material-ui/IconButton'
 import DeleteIcon from 'material-ui-icons/Delete'
-import FaIconPack from 'react-icons/lib/fa'
+
 
 
 import { deleteCard } from '../../actions/game'
