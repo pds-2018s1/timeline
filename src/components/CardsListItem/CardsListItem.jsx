@@ -4,19 +4,33 @@ import { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/Lis
 import IconButton from 'material-ui/IconButton'
 import DeleteIcon from 'material-ui-icons/Delete'
 
+
+
 import { deleteCard } from '../../actions/game'
 
-function CardsListItem({ card, deleteCard}) {
+
+class CardsListItem extends React.Component {
+  
+  _handleDelete(id){
+    this.props._handleDelete(id);
+  }
+  render() {
+    const {card } = this.props
   return (
     <ListItem dense>
       <ListItemText primary={card.name+", "+card.year} secondary={card.group} />
       <ListItemSecondaryAction>
+       
+        
         <IconButton aria-label="Delete">
-          <DeleteIcon onClick={() => deleteCard(card._id)} />
+          <DeleteIcon onClick={this._handleDelete.bind(this, card._id)} />
+
+
         </IconButton>
       </ListItemSecondaryAction>
     </ListItem>
   )
+}
 }
 
 export default connect(undefined, 
@@ -24,3 +38,4 @@ export default connect(undefined,
     deleteCard
   })
 )(CardsListItem)
+/* <IconButton aria-label="FaStopCircle"  onClick={this._handleDelete.bind(this, card._id)}>*/
