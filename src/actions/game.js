@@ -85,20 +85,27 @@ export const administrate = () => ({
 export const joinGame = (id) => (dispatch, getState) => {
 
   //TODO por ahora hacemos lo mismo que creando una partida
-  const {cards, player} = getState()  
-  const mixedCards = shuffle(cards)
+  const {cards, player, matches} = getState()  
   dispatch(({
-      type: START_GAME,
-      player : {
-        ...player, 
-        playerHand:mixedCards.slice(0,5)
-      },
-      opponents: generateOpponents(),
-      matchName: "joined game",
-      matchSize: 5,
-      cards: mixedCards.slice(7,cards.length),
-      timeline: mixedCards.slice(5,6)    
-    }))
+    type: WAIT_FOR_MATCH,
+    matchSize: matches.filter( (m) => m._id === id)[0].size
+  }))
+
+  window.setTimeout( () => {
+    const mixedCards = shuffle(cards)
+    dispatch(({
+        type: START_GAME,
+        player : {
+          ...player, 
+          playerHand:mixedCards.slice(0,5)
+        },
+        opponents: generateOpponents(),
+        matchName: "joined game",
+        matchSize: 5,
+        cards: mixedCards.slice(7,cards.length),
+        timeline: mixedCards.slice(5,6)    
+      }))
+  } , 3000)
 
 }
 
