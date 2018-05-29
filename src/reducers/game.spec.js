@@ -8,6 +8,7 @@ describe('game reducer', () => {
     const action = addCard({  name: 'independencia de  ... ', year: '1987' })
     expect(game(undefined, action)).toEqual({
         turn: "",
+        waitingForMatch: false,
         player: {
          playerHand: null
         },
@@ -30,6 +31,7 @@ describe('game reducer', () => {
       const action = login("Juan")
       expect(game(undefined, action)).toEqual({
         turn: "",
+        waitingForMatch: false,
         player: {
          name: "Juan"
         },
@@ -52,6 +54,7 @@ describe('game reducer', () => {
     const action = cardSelected({name: "Conquista de Pueyrredón", year: "1966"})
     expect(game(undefined, action)).toEqual({
         turn: "",
+        waitingForMatch: false,
         player: {
           playerHand: null
         },
@@ -74,6 +77,7 @@ describe('game reducer', () => {
     const _cards= [{_id: 1, name:"h", year:"90"}, {_id:2, name:"j", year:"100"}]
     const state= {
       turn: "",
+      waitingForMatch: false,
       player: {
       playerHand: null
       },
@@ -93,6 +97,7 @@ describe('game reducer', () => {
     const action = deleteCard
     expect(game(state, deleteCard(1))).toEqual({
       turn: "",
+      waitingForMatch: false,
       player: {
       playerHand: null
       },
@@ -135,6 +140,7 @@ describe('game reducer', () => {
       expect(state).toEqual({
         
             turn: "",
+            waitingForMatch: false,
             player: {
              name: "Juan",
              playerHand: expect.any(Array)

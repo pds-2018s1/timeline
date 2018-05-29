@@ -15,8 +15,10 @@ describe( 'timeline application', function(){
     cy.get('#newMatchName').type('New match')
     cy.get('#newMatchSize').type('4')
     cy.get('#newMatchSubmit').click()
+
+    cy.get('#waitingForMatch')
     
-    cy.get('#gameTable')
+    cy.get('#gameTable', {timeout: 6000} ) //El cartel de waiting for match tiene un sleep de 3 segundos
     cy.get('#gameTimeline')
     cy.get('#playerHand')
   })
