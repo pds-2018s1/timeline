@@ -1,0 +1,13 @@
+#waitingForMatch {
+  background-color: lightgrey;
+  width: 30%;
+  margin: auto;
+  margin-top: 200px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+#remainingPlayers {
+  width: 50%;
+  margin: auto;
+}

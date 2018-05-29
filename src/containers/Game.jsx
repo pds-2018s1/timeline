@@ -8,6 +8,8 @@ const mapStateToProps = state => ({
   loggedIn: state.loggedIn,
   name: state.player.name,
   administrate: state.administrate,
+  waitingForMatch: state.waitingForMatch,
+  matchSize: state.matchSize,
   matches: state.matches,
 })
 
