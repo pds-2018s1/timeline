@@ -1,5 +1,5 @@
 import { insert } from 'ramda'
-import { isoFetch, postWithJSONBody, deleteRequest } from './fetch-utils'
+import { isoFetch, postWithJSONBody, deleteRequest, putRequestWithJSONBody } from './fetch-utils'
 import { shuffle } from '../model/util'
 export const START_GAME = 'START_GAME'
 export const JOIN_GAME = 'JOIN_GAME'
@@ -60,6 +60,14 @@ export const deleteCard = id => async dispatch => {
   await isoFetch(`/cards/${id}`, deleteRequest())
   dispatch(localDeleteCard(id))
 }
+
+export const editCard = (id, name, year, img, group) => async dispatch => {
+  const card = { name: name, year: year, group: group, img:img }
+  const response = await isoFetch(`/cards/${id}`, putRequestWithJSONBody(card))
+  const r = await response.json()
+}
+
+
 
 export const loadMatches = matches => ({ type: LOAD_MATCHES, matches })
 
