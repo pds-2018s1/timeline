@@ -1,9 +1,8 @@
 import React from 'react'
 import List from 'material-ui/List'
-import CardsListItem from '../CardsListItem/CardsListItem'
+import CardsListItem from '../../containers/CardsListItem'
 import Popup from "reactjs-popup";
 import './CardsList.css'
-import { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List'
 
 
 
@@ -57,6 +56,9 @@ class CardsList extends React.Component {
       }));
   }
   
+  _handleEdit(){
+    console.log('handlig edit')
+  }
 
   render() {
     let  {cards} = this.props
@@ -70,7 +72,7 @@ class CardsList extends React.Component {
        <input type="text" text={this.state.filter} placeholder="Search" onChange={this.filterList}/>
         <List>
           {cards.map(card => (
-              <CardsListItem key={card._id} card={card} _handleDelete={this.delete.bind(this)}/>
+              <CardsListItem key={card._id} card={card} _handleDelete={this.delete.bind(this)} _handleEdit={this.edit.bind(this)} />
           ))}
         </List>
         <Popup trigger={<button className="button"> Agregar una carta </button>} modal>
@@ -129,6 +131,11 @@ class CardsList extends React.Component {
     deleteCardAction(id)
     const { cards } = this.props
     this.setState({filter:"" ,_cards:cards, filtered:false})
+  }
+
+  edit(){
+    const { fetchCards } = this.props
+    fetchCards()
   }
 }
 
