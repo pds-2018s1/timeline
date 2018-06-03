@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react'
 import classNames from 'classnames'
-import "./Card.css"
+import './Card.css'
 
 class Card extends React.Component {
 
@@ -24,7 +24,5 @@ class Card extends React.Component {
     )
   }
 }
-
-//src={require('./inte.jpg')}
 
 export default Card
