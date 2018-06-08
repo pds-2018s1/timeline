@@ -1,5 +1,7 @@
 # Prácticas de Desarrollo de Sortware
 
+[![CircleCI](https://circleci.com/gh/pds-2018s1/timeline.svg?style=svg)](https://circleci.com/gh/pds-2018s1/timeline)
+
 ## Trabajo práctico - TIMELINE
 El juego consta de cartas que representan un suceso, invento o descubrimiento. Estas cartas tienen de un sólo lado la fecha de dicho evento y del otro sólo su descripción. Por defecto la fecha se oculta boca abajo.
 En el centro de la mesa habrá cartas que deberán estar ordenadas temporalmente. En cada turno el jugador deberá elegir una de sus cartas (sin saber la fecha), y la deberá bajar al lugar que considera adecuado entre las cartas ya jugadas.
