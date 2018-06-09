@@ -1,7 +1,7 @@
 import React from "react"
 import "./Deck.css"
 
-const Deck = ({ cards, quantity }) => (
+const Deck = ({ quantity }) => (
   <div className="deck">
     <div className="text"> Mazo </div>
     <div className="deck">

@@ -67,7 +67,6 @@ _handleFocusOutGroup(text) {
   const {card } = this.props
   editCard(card._id, card.name, card.year, card.image, text)
   this.props._handleEdit();
-  console.log('Left editor with text: ' + text);
 }
 
   _handleDelete(id){

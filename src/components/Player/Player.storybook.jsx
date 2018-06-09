@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import PlayerHand from "../PlayerHand/PlayerHand"
 import Player from "./Player"
 import storeCreator from "../../storeCreator"
 import { Provider } from 'react-redux'

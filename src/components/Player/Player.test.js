@@ -1,8 +1,6 @@
 import React from "react"
 import { shallow } from 'enzyme'
-
 import Player from "./Player"
-import PlayerHand from "../PlayerHand/PlayerHand";
 {
   it("renderiza correctamente el nombre", () => {
     const name = "Juan"

@@ -6,7 +6,7 @@ import "./Opponents.css"
 const Opponents = ({opponents}) => (
     <div className="opponents">
         {opponents.map( 
-            o => <Opponent name={o.name} playerHand={o.playerHand} /> 
+            o => <Opponent key={o.name} name={o.name} playerHand={o.playerHand} /> 
         )}
     </div>
 )

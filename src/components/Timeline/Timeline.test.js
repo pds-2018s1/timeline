@@ -8,7 +8,7 @@ it("Despliega una carta", () => {
     const cards = [{_id: 1, name: "Independencia de Argentina", year: "1816"}]
     
     const timeline = shallow(<Timeline playedCards={cards}/>)
-    expect(timeline.find(Card).length).toBe(1)
+    expect(timeline.find(Card)).toHaveLength(1)
 })
 
 it("Despliega tres carta", () => {
@@ -19,5 +19,5 @@ it("Despliega tres carta", () => {
     ]
     
     const timeline = shallow(<Timeline playedCards={cards} />)
-    expect(timeline.find(Card).length).toBe(3)
+    expect(timeline.find(Card)).toHaveLength(3)
 })

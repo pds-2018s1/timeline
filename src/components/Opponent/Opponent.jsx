@@ -7,7 +7,7 @@ const Opponent = ({name, playerHand}) => (
         <div className="opponentName">{name}</div>
         <div className="opponentCards">
             {
-                playerHand.map(card => <div>{card.name}</div>)
+                playerHand.map(card => <div key={card._id}>{card.name}</div>)
             }
         </div>
     </div>

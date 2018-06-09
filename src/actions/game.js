@@ -61,13 +61,11 @@ export const deleteCard = id => async dispatch => {
   dispatch(localDeleteCard(id))
 }
 
-export const editCard = (id, name, year, img, group) => async dispatch => {
+export const editCard = async (id, name, year, img, group) => {
   const card = { name: name, year: year, group: group, img:img }
   const response = await isoFetch(`/cards/${id}`, putRequestWithJSONBody(card))
-  const r = await response.json()
+  await response.json()
 }
-
-
 
 export const loadMatches = matches => ({ type: LOAD_MATCHES, matches })
 
@@ -211,7 +209,7 @@ export const generateOpponents = () => (
     {name:"Carlos", playerHand: [
       {_id: 125, name: "Invencion de la agricultura", year: 1, image: ""},
       {_id: 126, name: "Invencion de la agricultura", year: 1, image: ""},
-      {_id: 127, name: "Invencion de la agricultura", year: 1, image: ""},
+      {_id: 127, name: "Invencion de la agricultura", year: 1, image: ""}
     ]},
     {name:"Florencia", playerHand: [
       {_id: 128, name: "Llegada a la luna", year: 1969, image: ""},

@@ -1,11 +1,4 @@
-
-import { startGame, cardSelected, cardPlacedInTimeline, fetchCards, loadCards } from '../actions/game'
-import { TEST_URL } from './fetch-utils'
-import configureStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import nock from 'nock'
-const mockStore = configureStore([thunk])
-
+import { cardSelected, loadCards } from '../actions/game'
 
 describe('Game actions', () => {
     describe('select card', () => {
@@ -24,22 +17,5 @@ describe('Game actions', () => {
             cards : _cards
         })
     })
-       /* it('buscar las cartas del server', async () => {
-            nock(TEST_URL)
-            .get('/cards')
-            .reply(200, {
-                status: 'ok', 
-                data: [{ id: 1, text: 'hola' }]
-            })
-            
-            const store = mockStore()
-            
-            await store.dispatch(fetchCards())
-            
-            expect(store.getActions()).toEqual([
-            { type: 'LOADED_CARDS', cards: [{ id: 1, text: 'hola' }] }
-            ])
-        })*/
 })
-//TODO: falta hacer test de las otras 2 acciones
 })
