@@ -23,10 +23,20 @@
     "redux-thunk": "^2.2.0",
     "shuffle-array": "^1.0.1"
   },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 5,
+        "functions": 9,
+        "lines": 15,
+        "statements": 11
+      }
+    }
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
