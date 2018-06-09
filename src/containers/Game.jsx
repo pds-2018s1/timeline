@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
   administrate: state.administrate,
   waitingForMatch: state.waitingForMatch,
   matchSize: state.matchSize,
-  matches: state.matches,
+  matches: state.matches
 })
 
 const mapActionsToProps = dispatch => ({

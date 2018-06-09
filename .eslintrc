@@ -1,0 +1,33 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["node","jest", "react"],
+  "extends": ["eslint:recommended", "plugin:jest/recommended", "plugin:react/recommended"],
+  "rules": {
+    "no-console": "warn",
+    "comma-dangle": [2, "never"],
+    "semi": 0,
+    "max-len": 0,
+    "no-multiple-empty-lines": 0,
+    "object-shorthand": 0,
+    "padded-blocks": 0,
+    "react/prop-types": 0
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  
+  "globals": {
+    "window": false,
+    "document": false,
+    "cy": true,
+    "Cypress": true,
+    "process": true,
+    "URL": true,
+    "navigator": true,
+    "console": true,
+    "fetch": true,
+    "module": true
+  }
+}

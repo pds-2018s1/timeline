@@ -94,7 +94,6 @@ describe('game reducer', () => {
       matches: [],
       cards: _cards
     }
-    const action = deleteCard
     expect(game(state, deleteCard(1))).toEqual({
       turn: "",
       waitingForMatch: false,

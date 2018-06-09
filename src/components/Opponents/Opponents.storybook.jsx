@@ -57,7 +57,7 @@ storiesOf('Opponents' , module)
                     { fact:{name: "Revolución Francesa", year: 1400} },
                     { fact:{name: "Descubrimiento de America", year: 1400} },
                     { fact:{name: "Invencion de la radio", year: 1400} },
-                    { fact:{name: "Invencion del automovil", year: 1400} },
+                    { fact:{name: "Invencion del automovil", year: 1400} }
                 ]
             },
             {

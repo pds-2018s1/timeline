@@ -21,11 +21,11 @@ it("renderiza el año si showInfo es true", () => {
 })
 
 it("no renderiza el año si showInfo es false", () => {
-    const card = {name: "Independencia de Argentina", year: "1816"}
+    const card = {_id: "1", image: "", group: "", name: "Independencia de Argentina", year: "1816"}
     const show = false
     
     const respuesta = shallow(<Card card={card} showingInfo={show} />)
-    expect(respuesta.find('div.year').length).toBe(0)
+    expect(respuesta.find('div.year')).toHaveLength(0)
 })
 
 }

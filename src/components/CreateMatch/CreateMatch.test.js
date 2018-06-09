@@ -6,7 +6,7 @@ import CreateMatch from './CreateMatch'
   it('Renderiza todos los componentes', () => {
     const createMatch = shallow(<CreateMatch />)
     expect(createMatch.find('h3.createMatchTitle').text()).toEqual("Crear partida nueva")
-    expect(createMatch.find('input.newMatchInput').length).toBe(2)
+    expect(createMatch.find('input.newMatchInput')).toHaveLength(2)
     const button = createMatch.find('button.createMatchButton')
     expect(button.text()).toEqual("Crear partida")
   })
