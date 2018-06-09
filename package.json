@@ -23,6 +23,16 @@
     "redux-thunk": "^2.2.0",
     "shuffle-array": "^1.0.1"
   },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 5,
+        "functions": 9,
+        "lines": 15,
+        "statements": 11
+      }
+    }
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
