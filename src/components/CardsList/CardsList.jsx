@@ -52,7 +52,7 @@ class CardsList extends React.Component {
 
    _handleDelete(id){
       this.setState(prevState => ({
-          data: prevState.data.filter(el => el != id )
+          data: prevState.data.filter(el => el !== id )
       }));
   }
   

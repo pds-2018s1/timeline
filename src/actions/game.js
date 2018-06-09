@@ -175,10 +175,10 @@ export const cardPlacedInTimeline = (previousCard) => (dispatch,getState) => {
   let winner = null
 
   const year = card.year
-  const prevYear = previousCard ? parseInt(previousCard.year) : Number.NEGATIVE_INFINITY
+  const prevYear = previousCard ? parseInt(previousCard.year, 10) : Number.NEGATIVE_INFINITY
   const prevCardIndex = previousCard ? timeline.indexOf(previousCard) : -1
   const nextCard = prevCardIndex < timeline.length - 1 ? timeline[prevCardIndex + 1] : null
-  const nextYear = nextCard ? parseInt(timeline[prevCardIndex + 1].year) : Number.POSITIVE_INFINITY
+  const nextYear = nextCard ? parseInt(timeline[prevCardIndex + 1].year, 10) : Number.POSITIVE_INFINITY
 
   newPlayerHand = newPlayerHand.filter( c => c.name !== card.name)
   if (prevYear < year && nextYear > year) {
