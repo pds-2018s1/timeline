@@ -1,3 +1,4 @@
+/* eslint no-console: 0 */
 import React from 'react'
 import { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List'
 import IconButton from 'material-ui/IconButton'
