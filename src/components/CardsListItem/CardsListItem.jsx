@@ -80,22 +80,22 @@ _handleFocusOutGroup(text) {
      <ListItemText 
      primary={<tr><EditableLabel text={card.name+"   "}
                   onFocus={this._handleFocusName}
-                  onFocusOut={this._handleFocusOutName} />
+                  onFocusOut={this._handleFocusOutName} id="cardName"/>
             
                   <EditableLabel text={card.year.toString() }
                   onFocus={this._handleFocusYear}
-                  onFocusOut={this._handleFocusOutYear}/></tr>} 
+                  onFocusOut={this._handleFocusOutYear} id="cardYear"/></tr>} 
         
      secondary={<tr><EditableLabel text={card.group}
                     onFocus={this._handleFocusGroup}
-                    onFocusOut={this._handleFocusOutGroup}/>
+                    onFocusOut={this._handleFocusOutGroup} id="cardGroup"/>
 
                     <EditableLabel text={card.image}
                     onFocus={this._handleFocusImage}
                     onFocusOut={this._handleFocusOutImage}/></tr>}  />
     
       <ListItemSecondaryAction>
-        <IconButton aria-label="Delete">
+        <IconButton aria-label="Delete" id="deleteCard">
           <DeleteIcon onClick={this._handleDelete.bind(this, card._id)} />
         </IconButton>
       </ListItemSecondaryAction>

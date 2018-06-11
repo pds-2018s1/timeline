@@ -12,7 +12,7 @@ class CardsManagement extends React.Component {
     return(<div className="home">
     <div className="greet">En esta sección se podrán administrar las cartas y grupos de este juego</div>
     
-    <button type="submit" name="submit" 
+    <button type="submit" name="submit" id="administrateCards"
              onClick={() => this.props.administrate()}>
             Administrar</button>
     

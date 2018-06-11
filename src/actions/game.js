@@ -61,6 +61,7 @@ export const deleteCard = id => async dispatch => {
   dispatch(localDeleteCard(id))
 }
 
+//export const editCard = (id, name, year, img, group) => async dispatch => {
 export const editCard = async (id, name, year, img, group) => {
   const card = { name: name, year: year, group: group, img:img }
   const response = await isoFetch(`/cards/${id}`, putRequestWithJSONBody(card))

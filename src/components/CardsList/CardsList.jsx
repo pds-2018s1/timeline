@@ -54,6 +54,7 @@ class CardsList extends React.Component {
       this.setState(prevState => ({
           data: prevState.data.filter(el => el !== id )
       }));
+      this.setState({filter:""})
   }
   
   /* eslint no-console: 0 */
@@ -70,19 +71,19 @@ class CardsList extends React.Component {
     return (
       <div>
        <h1>Listado de cartas</h1>
-       <input type="text" text={this.state.filter} placeholder="Search" onChange={this.filterList}/>
-        <List>
+       <input type="text" text={this.state.filter} placeholder="Search" id="searchGroups" onChange={this.filterList}/>
+        <List id="cardsList">
           {cards.map(card => (
               <CardsListItem key={card._id} card={card} _handleDelete={this.delete.bind(this)} _handleEdit={this.edit.bind(this)} />
           ))}
         </List>
-        <Popup trigger={<button className="button"> Agregar una carta </button>} modal>
+        <Popup trigger={<button className="button" id="addCard"> Agregar una carta </button>} modal>
     {close => (
       <div className="modal">
         <a className="close" onClick={close}>
           &times;
         </a>
-        <div className="header"> Agregar una carta </div>
+        <div className="header" id="addCardHeader"> Agregar una carta </div>
         <div className="content">
           {" "}
           Aquí se agregan las cartas
@@ -94,7 +95,7 @@ class CardsList extends React.Component {
         <input type="text" name="group" placeholder="Ingrese el grupo al que pertenece esta carta" onChange={this.handleGroupChange}/>
         
                 
-          <button className="button" onClick={() => {this.addCard()   
+          <button className="button" id="saveCard" onClick={() => {this.addCard()   
               close()
             }}
           >
