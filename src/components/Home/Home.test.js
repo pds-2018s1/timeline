@@ -1,7 +1,6 @@
 import React from "react"
 import { shallow } from 'enzyme'
 import Home from './Home'
-import Card from '../Card/Card'
 
 {
   it('Renderiza todos los componentes', () => {
