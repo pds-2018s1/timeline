@@ -56,6 +56,7 @@ class CardsList extends React.Component {
       }));
   }
   
+  /* eslint no-console: 0 */
   _handleEdit(){
     console.log('handlig edit')
   }

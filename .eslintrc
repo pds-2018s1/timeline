@@ -28,6 +28,7 @@
     "navigator": true,
     "console": true,
     "fetch": true,
-    "module": true
+    "module": true,
+    "Promise": true
   }
 }
