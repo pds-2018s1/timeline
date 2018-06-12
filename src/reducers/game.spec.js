@@ -1,20 +1,20 @@
-import { game } from "./game";
+import { game } from './game'
 import {
   localAddCard as addCard,
   login,
   startGame,
   cardSelected,
   localDeleteCard as deleteCard
-} from "../actions/game";
+} from '../actions/game'
 
-describe("game reducer", () => {
-  it("saves a card", () => {
+describe('game reducer', () => {
+  it('saves a card', () => {
     const action = addCard({
-      name: "independencia de  ... ",
-      year: "1987"
-    });
+      name: 'independencia de  ... ',
+      year: '1987'
+    })
     expect(game(undefined, action)).toEqual({
-      turn: "",
+      turn: '',
       waitingForMatch: false,
       player: {
         playerHand: null
@@ -30,17 +30,17 @@ describe("game reducer", () => {
       matchName: null, //TODO agrupar datos del juego en unico objeto
       matchSize: null,
       matches: [],
-      cards: [{ name: "independencia de  ... ", year: "1987" }]
-    });
-  });
+      cards: [{ name: 'independencia de  ... ', year: '1987' }]
+    })
+  })
 
-  it("logs in a player", () => {
-    const action = login("Juan");
+  it('logs in a player', () => {
+    const action = login('Juan')
     expect(game(undefined, action)).toEqual({
-      turn: "",
+      turn: '',
       waitingForMatch: false,
       player: {
-        name: "Juan"
+        name: 'Juan'
       },
       loggedIn: true,
       opponents: [],
@@ -54,16 +54,16 @@ describe("game reducer", () => {
       matchSize: null,
       matches: [],
       cards: []
-    });
-  });
+    })
+  })
 
-  it("selects a card", () => {
+  it('selects a card', () => {
     const action = cardSelected({
-      name: "Conquista de Pueyrredón",
-      year: "1966"
-    });
+      name: 'Conquista de Pueyrredón',
+      year: '1966'
+    })
     expect(game(undefined, action)).toEqual({
-      turn: "",
+      turn: '',
       waitingForMatch: false,
       player: {
         playerHand: null
@@ -73,23 +73,23 @@ describe("game reducer", () => {
       timeline: [],
       gameStarted: false,
       discard: { quantity: 0 },
-      selectedCard: { name: "Conquista de Pueyrredón", year: "1966" },
+      selectedCard: { name: 'Conquista de Pueyrredón', year: '1966' },
       winner: null,
       administrate: false,
       matchName: null,
       matchSize: null,
       matches: [],
       cards: []
-    });
-  });
+    })
+  })
 
-  it("deletes a card", () => {
+  it('deletes a card', () => {
     const _cards = [
-      { _id: 1, name: "h", year: "90" },
-      { _id: 2, name: "j", year: "100" }
-    ];
+      { _id: 1, name: 'h', year: '90' },
+      { _id: 2, name: 'j', year: '100' }
+    ]
     const state = {
-      turn: "",
+      turn: '',
       waitingForMatch: false,
       player: {
         playerHand: null
@@ -106,9 +106,9 @@ describe("game reducer", () => {
       matchSize: null,
       matches: [],
       cards: _cards
-    };
+    }
     expect(game(state, deleteCard(1))).toEqual({
-      turn: "",
+      turn: '',
       waitingForMatch: false,
       player: {
         playerHand: null
@@ -124,15 +124,15 @@ describe("game reducer", () => {
       matchName: null, //TODO agrupar datos del juego en unico objeto
       matchSize: null,
       matches: [],
-      cards: [{ _id: 2, name: "j", year: "100" }]
-    });
-  });
+      cards: [{ _id: 2, name: 'j', year: '100' }]
+    })
+  })
 
-  it.skip("starts a game", async () => {
+  it.skip('starts a game', async () => {
     let state = {
-      turn: "",
+      turn: '',
       player: {
-        name: "Juan"
+        name: 'Juan'
       },
       loggedIn: true,
       opponents: [],
@@ -146,17 +146,17 @@ describe("game reducer", () => {
       matchSize: null,
       matches: [],
       cards: []
-    };
+    }
 
-    await startGame("partida 1", 3)(
+    await startGame('partida 1', 3)(
       action => (state = game(state, action)),
       () => state
-    );
+    )
     expect(state).toEqual({
-      turn: "",
+      turn: '',
       waitingForMatch: false,
       player: {
-        name: "Juan",
+        name: 'Juan',
         playerHand: expect.any(Array)
       },
       loggedIn: true,
@@ -167,10 +167,10 @@ describe("game reducer", () => {
       selectedCard: null,
       winner: null,
       administrate: false,
-      matchName: "partida 1",
+      matchName: 'partida 1',
       matchSize: 3,
       matches: [],
       cards: expect.any(Array)
-    });
-  });
-});
+    })
+  })
+})

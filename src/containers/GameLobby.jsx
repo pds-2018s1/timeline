@@ -3,9 +3,12 @@ import GameLobby from '../components/GameLobby/GameLobby'
 import { login } from '../actions/game'
 
 const mapActionsToProps = dispatch => ({
-  login : name => { 
+  login: name => {
     return dispatch(login(name))
   }
 })
 
-export default connect(null, mapActionsToProps) (GameLobby)
+export default connect(
+  null,
+  mapActionsToProps
+)(GameLobby)

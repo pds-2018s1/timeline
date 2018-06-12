@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Game from "./containers/Game";
+import React, { Component } from 'react'
+import Game from './containers/Game'
 
 export default class App extends Component {
   render() {
@@ -9,6 +9,6 @@ export default class App extends Component {
           <Game />
         </div>
       </div>
-    );
+    )
   }
 }

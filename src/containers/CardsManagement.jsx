@@ -3,9 +3,12 @@ import CardsManagement from '../components/CardsManagement/CardsManagement'
 import { administrate } from '../actions/game'
 
 const mapActionsToProps = dispatch => ({
-  administrate : () => { 
+  administrate: () => {
     return dispatch(administrate())
   }
 })
 
-export default connect(null, mapActionsToProps) (CardsManagement)
+export default connect(
+  null,
+  mapActionsToProps
+)(CardsManagement)
