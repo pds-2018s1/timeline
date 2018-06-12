@@ -9,10 +9,10 @@ import {
   CARD_SELECTED,
   CARD_PLACED_IN_TIMELINE,
   LOGIN
-} from "../actions/game";
+} from '../actions/game'
 
 const initialState = {
-  turn: "",
+  turn: '',
   player: {
     playerHand: null
   },
@@ -29,7 +29,7 @@ const initialState = {
   matchName: null, //TODO agrupar datos del juego en unico objeto
   matchSize: null,
   matches: []
-};
+}
 
 /**Los turnos serán por nro de jugador.. desde 0 hasta...... (en principio arranca el 0) */
 export const game = (state = initialState, action) => {
@@ -39,33 +39,33 @@ export const game = (state = initialState, action) => {
         ...state,
         player: action.player,
         loggedIn: true
-      };
+      }
     case DELETE_CARD:
       return {
         ...state,
         cards: state.cards.filter(i => i._id !== action.id)
-      };
+      }
     case LOAD_CARDS:
       return {
         ...state,
         cards: action.cards
-      };
+      }
     case ADD_CARD:
       return {
         ...state,
         cards: state.cards.concat(action.card)
-      };
+      }
     case ADMINISTRATE:
       return {
         ...state,
         administrate: true
-      };
+      }
     case WAIT_FOR_MATCH:
       return {
         ...state,
         matchSize: action.matchSize,
         waitingForMatch: true
-      };
+      }
     case START_GAME:
       return {
         ...state,
@@ -78,12 +78,12 @@ export const game = (state = initialState, action) => {
         matchName: action.matchName,
         matchSize: action.matchSize,
         waitingForMatch: false
-      };
+      }
     case CARD_SELECTED:
       return {
         ...state,
         selectedCard: action.selectedCard
-      };
+      }
     case CARD_PLACED_IN_TIMELINE:
       return {
         ...state,
@@ -96,13 +96,13 @@ export const game = (state = initialState, action) => {
         },
         selectedCard: null,
         winner: action.winner
-      };
+      }
     case LOAD_MATCHES:
       return {
         ...state,
         matches: action.matches
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}

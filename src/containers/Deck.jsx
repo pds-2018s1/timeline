@@ -6,4 +6,7 @@ const mapStateToProps = state => ({
   quantity: state.cards.length
 })
 
-export default connect(mapStateToProps, null)(Deck)
+export default connect(
+  mapStateToProps,
+  null
+)(Deck)

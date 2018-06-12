@@ -114,7 +114,7 @@
     "build-storybook": "build-storybook -s public",
     "cypress:open": "cypress open",
     "lint": "eslint ./**/*.js && eslint ./**/*.jsx",
-    "pretty": "prettier --write --tab-width 2 \"src/**/*.js\"",
+    "pretty": "prettier --write  \"src/**/*.js\" && prettier --write  \"src/**/*.jsx\"",
     "precommit": "lint-staged && yarn test"
   },
   "lint-staged": {

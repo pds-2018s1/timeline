@@ -5,4 +5,7 @@ const mapStateToProps = state => ({
   quantity: state.discard.quantity
 })
 
-export default connect(mapStateToProps, null)(Discard)
+export default connect(
+  mapStateToProps,
+  null
+)(Discard)

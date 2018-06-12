@@ -14,15 +14,18 @@ const mapStateToProps = state => ({
 })
 
 const mapActionsToProps = dispatch => ({
-  startGame : (matchName, matchSize) => { 
+  startGame: (matchName, matchSize) => {
     return dispatch(startGame(matchName, matchSize))
   },
-  joinGame : (id) => {
+  joinGame: id => {
     return dispatch(joinGame(id))
   },
-  fetchMatches : () => {
+  fetchMatches: () => {
     return dispatch(fetchMatches())
   }
 })
 
-export default connect(mapStateToProps, mapActionsToProps)(Game)
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(Game)
