@@ -29,6 +29,7 @@
     "console": true,
     "fetch": true,
     "module": true,
-    "Promise": true
+    "Promise": true,
+    "dispatch": true
   }
 }
