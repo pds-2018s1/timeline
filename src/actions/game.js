@@ -62,6 +62,7 @@ export const localDeleteCard = id => ({
 })
 export const deleteCard = id => async dispatch => {
   await isoFetch(`/cards/${id}`, deleteRequest())
+  console.log('hola')
   dispatch(localDeleteCard(id))
 }
 
