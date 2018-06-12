@@ -49,4 +49,48 @@ describe( 'timeline application', function(){
     cy.get('#newMatchSubmit').should('be.disabled') 
   })
 
+  it ('should let you get into a created match', () => {
+   
+    cy.login()
+    cy.get('.listOfMatches > :nth-child(1)').click()
+    cy.get('#joinMatch').click()
+    cy.get('#gameTable', {timeout: 6000} ) //El cartel de waiting for match tiene un sleep de 3 segundos
+    cy.get('#gameTimeline').should('exist')
+  })
+
+
+  it ('should start a match after filling in the form', () => {
+    cy.login()
+    
+    cy.get('#newMatchName').type('New match')
+    cy.get('#newMatchSize').type('4')
+    cy.get('#newMatchSubmit').click()
+
+    cy.get('#waitingForMatch')
+    
+    cy.get('#gameTable', {timeout: 6000} ) //El cartel de waiting for match tiene un sleep de 3 segundos
+    cy.get('#gameTimeline')
+    cy.get('#playerHand')
+    cy.get('#playedCards').should('have.length', 0)
+    cy.get('#cardsList').children().should('have.length',5)
+    cy.get('#opponents').children().should('have.length', 4)
+  })
+
+  it ('should play a card and add it to the discard or the timeline', () => {
+    cy.login()
+    
+    cy.get('#newMatchName').type('New match')
+    cy.get('#newMatchSize').type('4')
+    cy.get('#newMatchSubmit').click()
+
+    cy.get('#waitingForMatch')
+    
+    cy.get('#gameTable', {timeout: 6000} )
+    cy.get('#discardQuantity').should('contain', '0')
+    cy.get('#cardsList > :nth-child(1)').click()
+    cy.get('.cardAndSlot > .timelineSlot').click()
+
+  })
+
+
 })

@@ -30,7 +30,7 @@ class Matches extends React.Component {
           {this.props.matches.map(m => <a onClick={() => this.onMatchSelected(m)} key={m._id} 
             className={classNames('matchLink', {'matchLinkSelected' : this.isSelected(m)})} >{m.name} <span className="matchSize">{m.size} Jugadores</span></a>)}  
         </ul>
-        <button className="joinMatchButton" type="submit" name="submit"
+        <button className="joinMatchButton" type="submit" name="submit" id="joinMatch"
           onClick={() => this.props.joinGame(this.state.matchSelected._id)}>
           Unirse
         </button>

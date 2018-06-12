@@ -24,7 +24,7 @@ const Player = ({ name, playerHand, turn = false, showPhoto }) => (
               </tbody>
             </table>
           </th>
-          <th><div className="playerHand"><PlayerHand cards={playerHand} turn={turn} /></div> </th>
+          <th><div className="playerHand" id="playerHand"><PlayerHand cards={playerHand} turn={turn} /></div> </th>
         </tr>
       </tbody>
     </table>
