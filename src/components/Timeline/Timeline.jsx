@@ -4,7 +4,7 @@ import Card from '../../containers/Card'
 import TimelineSlot from '../../containers/TimelineSlot';
 
 const Timeline = ({ playedCards }) => (
-  <div className="playedCards">
+  <div className="playedCards" id="playedCards">
     <TimelineSlot />
     {
       playedCards.map(
