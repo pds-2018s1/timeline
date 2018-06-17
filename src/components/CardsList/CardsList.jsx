@@ -67,9 +67,10 @@ class CardsList extends React.Component {
           type="text"
           text={this.state.filter}
           placeholder="Search"
+          id="searchGroups"
           onChange={this.filterList}
         />
-        <List>
+        <List id="cardsList">
 
           {cards.map(card => (
             <CardsListItem
@@ -81,7 +82,7 @@ class CardsList extends React.Component {
           ))}
         </List>
         <Popup
-          trigger={<button className="button"> Agregar una carta </button>}
+          trigger={<button className="button" id="addCard"> Agregar una carta </button>}
           modal
         >
           {close => (
@@ -89,7 +90,7 @@ class CardsList extends React.Component {
               <a className="close" onClick={close}>
                 &times;
               </a>
-              <div className="header"> Agregar una carta </div>
+              <div className="header" id="addCardHeader"> Agregar una carta </div>
               <div className="content"> Aquí se agregan las cartas</div>
               <div className="actions">
                 <input
@@ -119,6 +120,7 @@ class CardsList extends React.Component {
 
                 <button
                   className="button"
+                  id="saveCard"
                   onClick={() => {
                     this.addCard()
                     close()

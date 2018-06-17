@@ -7,7 +7,7 @@ const Discard = ({ quantity }) => (
     <div className="discard">
       <img className="image" alt="discard" src={require('./discard.png')} />
       <div className="number">
-        <b>{quantity}</b>
+        <b id="discardQuantity">{quantity}</b>
       </div>
     </div>
   </div>

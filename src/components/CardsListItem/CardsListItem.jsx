@@ -113,7 +113,7 @@ class CardsListItem extends React.Component {
         />
 
         <ListItemSecondaryAction>
-          <IconButton aria-label="Delete">
+          <IconButton aria-label="Delete" id="deleteCard">
             <DeleteIcon onClick={this._handleDelete.bind(this, card._id)} />
           </IconButton>
         </ListItemSecondaryAction>
