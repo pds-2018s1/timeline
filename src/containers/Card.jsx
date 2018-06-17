@@ -10,4 +10,7 @@ const mapActionsToProps = dispatch => ({
   cardSelected: card => dispatch(cardSelected(card))
 })
 
-export default connect(mapStateToProps, mapActionsToProps)(Card)
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(Card)

@@ -2,17 +2,14 @@ import React from 'react'
 import './GameLobby.css'
 
 class GameLobby extends React.Component {
-
   constructor(props) {
     super(props)
     this.state = {
-      playerName: ""
+      playerName: ''
     }
   }
 
-  handleChange = (event) =>
-    this.setState({playerName: event.target.value})
-  
+  handleChange = event => this.setState({ playerName: event.target.value })
 
   render() {
     return (
@@ -21,11 +18,22 @@ class GameLobby extends React.Component {
           <h3>Timeline</h3>
         </div>
         <div className="login">
-          <input type="text" id="loginName" name="playerName" placeholder="ingrese su nombre" onChange={this.handleChange}/>
-          
-          <button type="submit" name="submit" id="loginSubmit"
-            onClick={() => this.props.login(this.state.playerName)}>
-            Entrar</button>
+          <input
+            type="text"
+            id="loginName"
+            name="playerName"
+            placeholder="ingrese su nombre"
+            onChange={this.handleChange}
+          />
+
+          <button
+            type="submit"
+            name="submit"
+            id="loginSubmit"
+            onClick={() => this.props.login(this.state.playerName)}
+          >
+            Entrar
+          </button>
         </div>
       </div>
     )

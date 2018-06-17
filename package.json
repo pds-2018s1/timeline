@@ -108,11 +108,20 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom --coverage && codecov",
+    "test": "node scripts/test.js --env=jsdom --coverage",
+    "test-coverage": "yarn test && codecov",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "cypress:open": "cypress open",
-    "lint": "eslint ./**/*.js && eslint ./**/*.jsx"
+    "lint": "eslint ./**/*.js && eslint ./**/*.jsx",
+    "pretty": "prettier --write  \"src/**/*.js\" && prettier --write  \"src/**/*.jsx\"",
+    "precommit": "lint-staged && yarn test"
+  },
+  "lint-staged": {
+      "*.js": [
+          "yarn pretty",
+          "git add"
+      ]
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.0",
@@ -129,7 +138,10 @@
     "eslint-plugin-jest": "^21.17.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-react": "^7.9.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
     "nock": "^9.2.5",
+    "prettier": "^1.13.5",
     "redux-mock-store": "^1.5.1"
   },
   "babel": {

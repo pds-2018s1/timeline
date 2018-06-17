@@ -1,17 +1,10 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
 
-import Winner from "./Winner"
+import Winner from './Winner'
 
-storiesOf('Winner', module)
+storiesOf('Winner', module).add('Ganador llamado Juan', () => {
+  const name = 'Juan'
 
-  .add('Ganador llamado Juan', () => {
-    const name = "Juan"
-    
-    return <Winner name = {name}/>
-  })
-
-
-
-
-
+  return <Winner name={name} />
+})

@@ -6,4 +6,7 @@ const mapStateToProps = state => ({
   selectedCard: state.selectedCard
 })
 
-export default connect(mapStateToProps, ({cardPlacedInTimeline}))(TimelineSlot)
+export default connect(
+  mapStateToProps,
+  { cardPlacedInTimeline }
+)(TimelineSlot)
