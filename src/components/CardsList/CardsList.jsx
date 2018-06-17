@@ -32,6 +32,7 @@ class CardsList extends React.Component {
     return cards
   }
 
+
   handleNameChange = event => this.setState({ name: event.target.value })
 
   handleYearChange = event => this.setState({ year: event.target.value })
@@ -44,6 +45,7 @@ class CardsList extends React.Component {
     this.setState(prevState => ({
       data: prevState.data.filter(el => el !== id)
     }))
+
   }
 
   /* eslint no-console: 0 */
@@ -59,6 +61,7 @@ class CardsList extends React.Component {
 
     return (
       <div>
+
         <h1>Listado de cartas</h1>
         <input
           type="text"
@@ -67,6 +70,7 @@ class CardsList extends React.Component {
           onChange={this.filterList}
         />
         <List>
+
           {cards.map(card => (
             <CardsListItem
               key={card._id}

@@ -120,6 +120,7 @@ class CardsListItem extends React.Component {
       </ListItem>
     )
   }
+
 }
 
 export default CardsListItem

@@ -29,3 +29,11 @@ Cypress.Commands.add("login", () => {
   cy.get('#loginName').type('Lucas')
   cy.get('#loginSubmit').click()
 })
+
+
+Cypress.Commands.add("newMatch", () => {
+  cy.get('#newMatchName').type('New match')
+  cy.get('#newMatchSize').type('4')
+  cy.get('#newMatchSubmit').click()
+  cy.get('#waitingForMatch')
+})
