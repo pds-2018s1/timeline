@@ -17,6 +17,7 @@ class CardsManagement extends React.Component {
         <button
           type="submit"
           name="submit"
+          id="administrateCards"
           onClick={() => this.props.administrate()}
         >
           Administrar

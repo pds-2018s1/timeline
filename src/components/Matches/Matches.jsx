@@ -40,6 +40,7 @@ class Matches extends React.Component {
           className="joinMatchButton"
           type="submit"
           name="submit"
+          id="joinMatch"
           onClick={() => this.props.joinGame(this.state.matchSelected._id)}
         >
           Unirse

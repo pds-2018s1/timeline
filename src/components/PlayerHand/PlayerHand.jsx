@@ -5,7 +5,8 @@ import Card from '../../containers/Card'
 
 
 const PlayerHand = ({ cards, turn }) => (
-  <div className="lista">
+  <div className="lista"
+  id="cardsList">
     {cards.map(card => (
       <Card
         key={card._id}
