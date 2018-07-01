@@ -42,8 +42,8 @@ jobs:
         docker_layer_caching: true
 
       - run:
-        docker build -t   g2pdes/timeline .
+        docker build -t g2pdes/timeline:latest .
         docker login -u $DOCKER_USER -p $DOCKER_PASS
-        docker push g2pdes/timeline
+        docker push g2pdes/timeline:latest
         
 
