@@ -32,7 +32,8 @@ jobs:
       - run: yarn lint
       - run: yarn build
 
-      - setup_remote_docker
+      - setup_remote_docker:
+        docker_layer_caching: true
 
       #- run: docker build -t g2pdes/timeline:latest .
       #- run: docker login -u $DOCKER_USER -p $DOCKER_PASS
