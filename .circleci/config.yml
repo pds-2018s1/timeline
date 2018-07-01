@@ -6,14 +6,8 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: circleci/node:7.10
       
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
     working_directory: ~/repo
 
     steps:
@@ -38,12 +32,11 @@ jobs:
       - run: yarn lint
       - run: yarn build
 
-      - setup_remote_docker
-        docker_layer_caching: true
+      - setup_remote_docker:
+          docker_layer_caching: true
 
-      - run:
-        docker build -t   g2pdes/timeline .
-        docker login -u $DOCKER_USER -p $DOCKER_PASS
-        docker push g2pdes/timeline
+      - run: docker build -t g2pdes/timeline:latest .
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run: docker push g2pdes/timeline:latest
         
 
