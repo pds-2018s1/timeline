@@ -38,9 +38,8 @@ jobs:
       - run: yarn lint
       - run: yarn build
 
-      - run:
-        docker build -t g2pdes/timeline:latest .
-        docker login -u $DOCKER_USER -p $DOCKER_PASS
-        docker push g2pdes/timeline:latest
+      - run: docker build -t g2pdes/timeline:latest .
+      #- run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      #- run: docker push g2pdes/timeline:latest
         
 
