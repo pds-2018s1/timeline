@@ -38,5 +38,10 @@ jobs:
       - run: docker build -t g2pdes/timeline:latest .
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: docker push g2pdes/timeline:latest
-        
+  
+  deployment:
+    staging:
+      branch: development
+      heroku:
+        appname: timeline
 
