@@ -39,7 +39,7 @@ jobs:
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: docker push g2pdes/timeline:latest
   
-  deploy:
+  deployment:
     steps:
       - checkout
       - run:
