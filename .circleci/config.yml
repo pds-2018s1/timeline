@@ -40,8 +40,8 @@ jobs:
       - run: docker push g2pdes/timeline:latest
   
       - deployment:
-        dev:
-          branch: development
-          heroku:
-            appname: timeline
+          dev:
+            branch: development
+            heroku:
+              appname: timeline
 
