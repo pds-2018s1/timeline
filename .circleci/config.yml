@@ -39,11 +39,8 @@ jobs:
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: docker push g2pdes/timeline:latest
   
-  deploy:
-    steps:
-      - checkout
-      - run:
-          name: Deploy Development to Heroku
-          command: |
-            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+      # install heroku CLI
+      - run: wget -qO- https://toolbelt.heroku.com/install.sh | sh
+      # login to docker registries (dockerhub + heroku)
+      - run: echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
 
