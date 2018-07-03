@@ -40,6 +40,7 @@ jobs:
       - run: docker push g2pdes/timeline:latest
   
       # install heroku CLI
+      - run: docker -v
       - run: wget -qO- https://toolbelt.heroku.com/install.sh | sh
       # login to docker registries (dockerhub + heroku)
       - run: echo $HEROKU_PASSWORD docker login -u $HEROKU_USERNAME --password-stdin registry.heroku.com
