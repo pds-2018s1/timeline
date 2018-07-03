@@ -36,7 +36,7 @@ jobs:
           docker_layer_caching: true
 
       - run: docker build -t g2pdes/timeline:latest .
-      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run: echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
       - run: docker push g2pdes/timeline:latest
   
       # install heroku CLI
