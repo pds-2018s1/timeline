@@ -36,13 +36,11 @@ jobs:
           docker_layer_caching: true
 
       - run: docker build -t g2pdes/timeline:latest .
-      - run: echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: docker push g2pdes/timeline:latest
   
       # install heroku CLI
-      - run: docker -v
       - run: wget -qO- https://toolbelt.heroku.com/install.sh | sh
       # login to docker registries (dockerhub + heroku)
-      - run: echo $HEROKU_PASSWORD docker login -u $HEROKU_USERNAME --password-stdin registry.heroku.com
-      - run: echo $HEROKU_PASSWORD | docker login -u $HEROKU_USERNAME --password-stdin registry.heroku.com
+      - run: docker login -u $HEROKU_USERNAME -p $HEROKU_PASSWORD registry.heroku.com
 
