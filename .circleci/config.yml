@@ -42,8 +42,7 @@ jobs:
       - run: docker login -u $HEROKU_USERNAME -p $HEROKU_PASSWORD registry.heroku.com
       - run: docker push registry.heroku.com/$HEROKU_APP_NAME/web
   
-      # install heroku CLI
-      - run: wget -qO- https://toolbelt.heroku.com/install.sh | sh
-      # login to docker registries (dockerhub + heroku)
+      - run: wget -qO- https://toolbelt.heroku.com/install.sh | sh    
+      - run: heroku container:release web --app $HEROKU_APP_NAME
   
 
