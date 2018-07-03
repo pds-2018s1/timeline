@@ -60,9 +60,10 @@ if (process.env.HOST) {
 
 // We attempt to use the default port but if it is busy, we offer the user to
 // run on a different port. `choosePort()` Promise resolves to the next free port.
-choosePort(HOST, process.env.PORT || 3000)
+choosePort(HOST, DEFAULT_PORT)
   .then(port => {
     if (port == null) {
+      console.log('error!, port not found')
       // We have not found a port.
       return
     }
@@ -81,7 +82,7 @@ choosePort(HOST, process.env.PORT || 3000)
     )
     const devServer = new WebpackDevServer(compiler, serverConfig)
     // Launch WebpackDevServer.
-    devServer.listen(process.env.PORT || 3000, HOST, err => {
+    devServer.listen(port, HOST, err => {
       if (err) {
         return console.log(err)
       }
