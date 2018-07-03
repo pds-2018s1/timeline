@@ -39,10 +39,11 @@ jobs:
       - run: docker tag g2pdes/timeline:latest registry.heroku.com/$HEROKU_APP_NAME/web
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: docker push g2pdes/timeline:latest
+      - run: docker login -u $HEROKU_USERNAME -p $HEROKU_PASSWORD registry.heroku.com
       - run: docker push registry.heroku.com/$HEROKU_APP_NAME/web
   
       # install heroku CLI
       - run: wget -qO- https://toolbelt.heroku.com/install.sh | sh
       # login to docker registries (dockerhub + heroku)
-      - run: docker login -u $HEROKU_USERNAME -p $HEROKU_PASSWORD registry.heroku.com
+  
 
